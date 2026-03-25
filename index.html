@@ -35,28 +35,49 @@
             font-weight: bold;
             margin-bottom: 2rem;
         }
-        button {
-            background-color: #000000;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
+        #paypal-button-container {
             width: 100%;
-            transition: background 0.2s;
-        }
-        button:hover {
-            background-color: #333333;
+            margin-top: 1rem;
+            min-height: 150px; /* Gives the button room to load */
         }
     </style>
+    
+    <script src="https://www.paypal.com/sdk/js?client-id=AS9oMLSMF5X4TNEkxgn-53oQvL8tZUqvsTNhWRYDlysknZItr5pXvnflUi1EkK8YdUWa9i__YDNtQO0u&currency=USD"></script>
 </head>
 <body>
     <div class="card">
         <h1>Premium Product</h1>
         <div class="price">$10.00</div>
-        <button>Buy Now</button>
+        
+        <div id="paypal-button-container"></div>
     </div>
+
+    <script>
+        paypal.Buttons({
+            // Sets up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '10.00' 
+                        },
+                        description: 'Premium Product'
+                    }]
+                });
+            },
+            // Finalizes the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    alert('Transaction ' + transaction.status + '! Thank you for your test purchase.');
+                });
+            },
+            // Handles errors
+            onError: function(err) {
+                console.error('PayPal Checkout onError', err);
+                alert('Something went wrong with the payment. Please try again.');
+            }
+        }).render('#paypal-button-container');
+    </script>
 </body>
 </html>
