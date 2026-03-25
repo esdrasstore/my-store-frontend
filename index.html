@@ -38,7 +38,7 @@
         #paypal-button-container {
             width: 100%;
             margin-top: 1rem;
-            min-height: 150px; /* Gives the button room to load */
+            min-height: 150px; 
         }
     </style>
     
@@ -54,7 +54,6 @@
 
     <script>
         paypal.Buttons({
-            // Sets up the transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
@@ -65,14 +64,12 @@
                     }]
                 });
             },
-            // Finalizes the transaction
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(orderData) {
-                    var transaction = orderData.purchase_units[0].payments.captures[0];
-                    alert('Transaction ' + transaction.status + '! Thank you for your test purchase.');
+                    // Redirects to your new success.html page
+                    window.location.href = "/success.html";
                 });
             },
-            // Handles errors
             onError: function(err) {
                 console.error('PayPal Checkout onError', err);
                 alert('Something went wrong with the payment. Please try again.');
