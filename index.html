@@ -3,20 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venicit - Premium Tech Components</title>
+    <title>Venicit - Premium Audiophile Components</title>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f5; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background: white; padding: 1rem 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; color: #111827; text-decoration: none; }
+        /* Dynamic Black Background */
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            background: radial-gradient(circle at top right, #1a1712 0%, #050505 100%); 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+        
+        /* Grayish-Gold Header */
+        header { 
+            background: linear-gradient(180deg, #2a2620 0%, #11100e 100%); 
+            padding: 1.2rem 2rem; 
+            border-bottom: 1px solid #d4af37;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo { 
+            font-weight: bold; 
+            font-size: 1.4rem; 
+            letter-spacing: 2px; 
+            color: #d4af37; 
+            text-decoration: none; 
+            text-transform: uppercase;
+        }
+        .merchant-status {
+            font-size: 0.8rem; 
+            color: #d4af37; 
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .dot {
+            height: 8px; width: 8px; background-color: #10b981; border-radius: 50%; display: inline-block;
+        }
+        
         .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem; }
-        .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); text-align: center; max-width: 350px; width: 100%; }
+        
+        /* Unchanged Clean Card styling with a subtle gold shadow */
+        .card { 
+            background: white; 
+            padding: 2.5rem; 
+            border-radius: 12px; 
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5), 0 0 15px rgba(212, 175, 55, 0.15); 
+            text-align: center; 
+            max-width: 350px; 
+            width: 100%; 
+        }
         h1 { font-size: 1.4rem; color: #111827; margin-bottom: 0.5rem; }
-        .price { font-size: 1.5rem; color: #10b981; font-weight: bold; margin-bottom: 1rem; }
-        .description { font-size: 0.85rem; color: #4b5563; margin-bottom: 1.5rem; line-height: 1.4; text-align: left; background: #f9fafb; padding: 1rem; border-radius: 8px;}
+        .price { font-size: 1.5rem; color: #111827; font-weight: bold; margin-bottom: 1rem; }
+        
+        /* Added a small gold accent line to the description box */
+        .description { 
+            font-size: 0.85rem; color: #4b5563; margin-bottom: 1.5rem; 
+            line-height: 1.5; text-align: left; background: #f9fafb; 
+            padding: 1rem; border-radius: 8px; border-left: 3px solid #d4af37;
+        }
+        
         #paypal-button-container { width: 100%; margin-top: 1rem; min-height: 150px; }
-        footer { padding: 2rem; text-align: center; font-size: 0.75rem; color: #9ca3af; }
-        footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
-        footer a:hover { text-decoration: underline; }
+        
+        /* Dark/Gold Footer */
+        footer { padding: 2rem; text-align: center; font-size: 0.8rem; color: #888; }
+        footer a { color: #d4af37; text-decoration: none; margin: 0 10px; transition: color 0.3s ease; }
+        footer a:hover { color: #fff; text-decoration: underline; }
+        .copyright { margin-top: 1rem; color: #555; }
     </style>
     <script src="https://www.paypal.com/sdk/js?client-id=BAA2ROVMef358UGWn2GTLP56s9eSWI7JffOrMXYZiNCMJuACbaL5cvbVm5nIm9K5nCZbjGPZFwdFDuPtPk&currency=USD"></script>
 </head>
@@ -24,7 +79,7 @@
 
     <header>
         <a href="/" class="logo">VENICIT</a>
-        <div style="font-size: 0.8rem; color: #10b981;">● Verified Global Merchant</div>
+        <div class="merchant-status"><span class="dot"></span> Verified Global Merchant</div>
     </header>
 
     <div class="container">
@@ -43,24 +98,24 @@
 
     <footer>
         <div style="margin-bottom: 0.5rem;">
-            <a href="/contact.html">Shipping Policy</a> • 
-            <a href="/contact.html">Returns</a> • 
+            <a href="/shipping.html">Shipping Policy</a> • 
+            <a href="/returns.html">Returns</a> • 
             <a href="/contact.html">Contact Support</a>
         </div>
-        <p>© 2026 Venicit - Canuck Digital Media Inc.</p>
-        <p>Logistics partner: International Priority Mail</p>
+        <p class="copyright">© 2026 Venicit Audio Components. All rights reserved.</p>
+        <p class="copyright">Logistics partner: International Priority Mail</p>
     </footer>
 
     <script>
         paypal.Buttons({
-            // This is the magic line that forces PayPal to ask for a shipping address
             shipping_preference: 'GET_FROM_FILE', 
             
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: { value: '20.00' },
-                        description: 'Venicit Premium Link Component - Model V1'
+                        /* Updated to match the new physical product name */
+                        description: 'Studio-Grade PS Audio Cable - V1 Core'
                     }]
                 });
             },
