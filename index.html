@@ -13,37 +13,35 @@
             display: flex; 
             flex-direction: column; 
             min-height: 100vh; 
-            position: relative;
-            z-index: 0;
         }
 
-        /* Subtle Sparkling Gold Flakes */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+        /* Safe Layer for Sparkling Gold Flakes */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                radial-gradient(circle, rgba(212, 175, 55, 0.6) 1px, transparent 1px),
-                radial-gradient(circle, rgba(212, 175, 55, 0.3) 1px, transparent 1px);
-            background-position: 0 0, 40px 40px;
-            background-size: 80px 80px;
-            z-index: -1;
-            animation: twinkle 4s infinite alternate ease-in-out;
+                radial-gradient(circle, rgba(212, 175, 55, 0.4) 1px, transparent 1px),
+                radial-gradient(circle, rgba(212, 175, 55, 0.15) 1px, transparent 1px);
+            background-position: 0 0, 30px 30px;
+            background-size: 60px 60px;
+            z-index: 0;
             pointer-events: none;
+            animation: twinkle 3s infinite alternate ease-in-out;
         }
 
         @keyframes twinkle {
             0% { opacity: 0.3; }
-            100% { opacity: 0.8; }
+            100% { opacity: 1; }
         }
         
         /* Dark Grey Header with Thick Gold Separator */
         header { 
             position: relative;
+            z-index: 10; /* Forces it above the background */
             background-color: #1c1c1c; 
             padding: 1.2rem 2rem; 
-            border-bottom: 5px solid #d4af37; 
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+            border-bottom: 4px solid #d4af37; 
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
@@ -74,8 +72,6 @@
             color: #d4af37; 
             text-decoration: none; 
             text-transform: uppercase;
-            position: relative;
-            z-index: 1;
         }
         
         .merchant-status {
@@ -84,15 +80,21 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            position: relative;
-            z-index: 1;
         }
         
         .dot {
             height: 8px; width: 8px; background-color: #10b981; border-radius: 50%; display: inline-block;
         }
         
-        .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem; }
+        .container { 
+            flex: 1; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 2rem; 
+            position: relative;
+            z-index: 10; /* Forces it above the background */
+        }
         
         /* Clean Card styling with a subtle gold shadow */
         .card { 
@@ -117,9 +119,75 @@
         #paypal-button-container { width: 100%; margin-top: 1rem; min-height: 150px; }
         
         /* Dark/Gold Footer */
-        footer { padding: 2rem; text-align: center; font-size: 0.8rem; color: #888; }
+        footer { 
+            padding: 2rem; 
+            text-align: center; 
+            font-size: 0.8rem; 
+            color: #888; 
+            position: relative;
+            z-index: 10; /* Forces it above the background */
+            background-color: #050505;
+        }
         footer a { color: #d4af37; text-decoration: none; margin: 0 10px; transition: color 0.3s ease; }
         footer a:hover { color: #fff; text-decoration: underline; }
         .copyright { margin-top: 1rem; color: #555; }
     </style>
-    <script src="
+    <script src="https://www.paypal.com/sdk/js?client-id=BAA2ROVMef358UGWn2GTLP56s9eSWI7JffOrMXYZiNCMJuACbaL5cvbVm5nIm9K5nCZbjGPZFwdFDuPtPk&currency=USD"></script>
+</head>
+<body>
+
+    <div class="particles"></div>
+
+    <header>
+        <a href="/" class="logo">VENICIT</a>
+        <div class="merchant-status"><span class="dot"></span> Verified Global Merchant</div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h1>Studio-Grade PS Audio Cable</h1>
+            <div class="price">$20.00</div>
+            <div class="description">
+                <strong>Model:</strong> V1-Core<br>
+                <strong>Type:</strong> Audio/Visual Interface<br>
+                <strong>Shipping:</strong> International Priority Mail Included
+            </div>
+            
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="margin-bottom: 0.5rem;">
+            <a href="/shipping.html">Shipping Policy</a> • 
+            <a href="/returns.html">Returns</a> • 
+            <a href="/contact.html">Contact Support</a>
+        </div>
+        <p class="copyright">© 2026 Venicit Audio Components. All rights reserved.</p>
+        <p class="copyright">Logistics partner: International Priority Mail</p>
+    </footer>
+
+    <script>
+        paypal.Buttons({
+            shipping_preference: 'GET_FROM_FILE', 
+            
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: { value: '20.00' },
+                        description: 'Studio-Grade PS Audio Cable - V1 Core'
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    window.location.href = "/success.html";
+                });
+            },
+            onError: function(err) {
+                console.error('PayPal Checkout Error', err);
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>
