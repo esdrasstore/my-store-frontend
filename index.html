@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Product</title>
+    <title>Premium Product - Venicit</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -40,6 +40,21 @@
             margin-top: 1rem;
             min-height: 150px; 
         }
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.7rem;
+            color: #9ca3af;
+        }
+        .footer a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin: 0 4px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
     
     <script src="https://www.paypal.com/sdk/js?client-id=BAA2ROVMef358UGWn2GTLP56s9eSWI7JffOrMXYZiNCMJuACbaL5cvbVm5nIm9K5nCZbjGPZFwdFDuPtPk&currency=USD"></script>
@@ -50,6 +65,16 @@
         <div class="price">$1.20</div>
         
         <div id="paypal-button-container"></div>
+
+        <div class="footer">
+            <div style="margin-bottom: 0.5rem;">
+                <a href="#">Terms of Service</a> • 
+                <a href="#">Privacy Policy</a> • 
+                <a href="#">Contact Support</a>
+            </div>
+            <p>© 2026 Venicit Digital Media. All rights reserved.</p>
+            <p>Protected by PayPal Secure Encryption</p>
+        </div>
     </div>
 
     <script>
@@ -60,7 +85,7 @@
                         amount: {
                             value: '1.20' 
                         },
-                        description: 'Premium Product'
+                        description: 'Premium Product - Venicit Store'
                     }]
                 });
             },
@@ -71,7 +96,7 @@
             },
             onError: function(err) {
                 console.error('PayPal Checkout onError', err);
-                alert('Something went wrong with the payment. Please try again.');
+                alert('Payment could not be processed. Please check your connection and try again.');
             }
         }).render('#paypal-button-container');
     </script>
