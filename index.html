@@ -5,25 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venicit - Premium Audiophile Components</title>
     <style>
-        /* Dynamic Black Background */
+        /* Deep Black Base */
         body { 
             font-family: 'Helvetica Neue', Arial, sans-serif; 
-            background: radial-gradient(circle at top right, #1a1712 0%, #050505 100%); 
+            background-color: #050505; 
             margin: 0; 
             display: flex; 
             flex-direction: column; 
             min-height: 100vh; 
+            position: relative;
+            z-index: 0;
+        }
+
+        /* Subtle Sparkling Gold Flakes */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle, rgba(212, 175, 55, 0.6) 1px, transparent 1px),
+                radial-gradient(circle, rgba(212, 175, 55, 0.3) 1px, transparent 1px);
+            background-position: 0 0, 40px 40px;
+            background-size: 80px 80px;
+            z-index: -1;
+            animation: twinkle 4s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
         }
         
-        /* Grayish-Gold Header */
+        /* Dark Grey Header with Thick Gold Separator */
         header { 
-            background: linear-gradient(180deg, #2a2620 0%, #11100e 100%); 
+            position: relative;
+            background-color: #1c1c1c; 
             padding: 1.2rem 2rem; 
-            border-bottom: 1px solid #d4af37;
+            border-bottom: 5px solid #d4af37; 
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
+            overflow: hidden;
         }
+
+        /* Moving Neon Sweep Effect */
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
+            transform: skewX(-20deg);
+            animation: neonSweep 4s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes neonSweep {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
         .logo { 
             font-weight: bold; 
             font-size: 1.4rem; 
@@ -31,34 +74,40 @@
             color: #d4af37; 
             text-decoration: none; 
             text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
+        
         .merchant-status {
             font-size: 0.8rem; 
             color: #d4af37; 
             display: flex;
             align-items: center;
             gap: 6px;
+            position: relative;
+            z-index: 1;
         }
+        
         .dot {
             height: 8px; width: 8px; background-color: #10b981; border-radius: 50%; display: inline-block;
         }
         
         .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem; }
         
-        /* Unchanged Clean Card styling with a subtle gold shadow */
+        /* Clean Card styling with a subtle gold shadow */
         .card { 
             background: white; 
             padding: 2.5rem; 
             border-radius: 12px; 
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5), 0 0 15px rgba(212, 175, 55, 0.15); 
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5), 0 0 20px rgba(212, 175, 55, 0.15); 
             text-align: center; 
             max-width: 350px; 
             width: 100%; 
         }
+        
         h1 { font-size: 1.4rem; color: #111827; margin-bottom: 0.5rem; }
         .price { font-size: 1.5rem; color: #111827; font-weight: bold; margin-bottom: 1rem; }
         
-        /* Added a small gold accent line to the description box */
         .description { 
             font-size: 0.85rem; color: #4b5563; margin-bottom: 1.5rem; 
             line-height: 1.5; text-align: left; background: #f9fafb; 
@@ -73,61 +122,4 @@
         footer a:hover { color: #fff; text-decoration: underline; }
         .copyright { margin-top: 1rem; color: #555; }
     </style>
-    <script src="https://www.paypal.com/sdk/js?client-id=BAA2ROVMef358UGWn2GTLP56s9eSWI7JffOrMXYZiNCMJuACbaL5cvbVm5nIm9K5nCZbjGPZFwdFDuPtPk&currency=USD"></script>
-</head>
-<body>
-
-    <header>
-        <a href="/" class="logo">VENICIT</a>
-        <div class="merchant-status"><span class="dot"></span> Verified Global Merchant</div>
-    </header>
-
-    <div class="container">
-        <div class="card">
-            <h1>Studio-Grade PS Audio Cable</h1>
-            <div class="price">$20.00</div>
-            <div class="description">
-                <strong>Model:</strong> V1-Core<br>
-                <strong>Type:</strong> Audio/Visual Interface<br>
-                <strong>Shipping:</strong> International Priority Mail Included
-            </div>
-            
-            <div id="paypal-button-container"></div>
-        </div>
-    </div>
-
-    <footer>
-        <div style="margin-bottom: 0.5rem;">
-            <a href="/shipping.html">Shipping Policy</a> • 
-            <a href="/returns.html">Returns</a> • 
-            <a href="/contact.html">Contact Support</a>
-        </div>
-        <p class="copyright">© 2026 Venicit Audio Components. All rights reserved.</p>
-        <p class="copyright">Logistics partner: International Priority Mail</p>
-    </footer>
-
-    <script>
-        paypal.Buttons({
-            shipping_preference: 'GET_FROM_FILE', 
-            
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: { value: '20.00' },
-                        /* Updated to match the new physical product name */
-                        description: 'Studio-Grade PS Audio Cable - V1 Core'
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(orderData) {
-                    window.location.href = "/success.html";
-                });
-            },
-            onError: function(err) {
-                console.error('PayPal Checkout Error', err);
-            }
-        }).render('#paypal-button-container');
-    </script>
-</body>
-</html>
+    <script src="
