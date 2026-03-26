@@ -26,7 +26,28 @@
             justify-content: space-between;  
             align-items: center; 
         }  
-        .logo { font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; color: #111827; text-decoration: none; }  
+        
+        .logo { 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            letter-spacing: 1px; 
+            color: #111827; 
+            text-decoration: none; 
+        }  
+        
+        /* New PayPal-Styled Merchant Status */
+        .merchant-status {
+            font-weight: bold; 
+            font-size: 1rem; 
+            letter-spacing: 1px; 
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .pp-dot { color: #0079C1; font-size: 1.2rem; margin-right: 2px; }
+        .pp-dark { color: #003087; } /* PayPal Dark Blue */
+        .pp-light { color: #0079C1; } /* PayPal Light Blue */
+
         .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem; }  
 
         .card { 
@@ -59,7 +80,11 @@
 
     <header>  
         <a href="/" class="logo">VENICIT</a>  
-        <div style="font-size: 0.8rem; color: #10b981;">● Verified Global Merchant</div>  
+        <div class="merchant-status">
+            <span class="pp-dot">●</span> 
+            <span class="pp-dark">Verified</span> 
+            <span class="pp-light">Global Merchant</span>
+        </div>  
     </header>  
 
     <div class="container">  
@@ -88,7 +113,6 @@
 
     <script>  
         paypal.Buttons({  
-            // This is the magic line that forces PayPal to ask for a shipping address  
             shipping_preference: 'GET_FROM_FILE',   
             
             createOrder: function(data, actions) {  
