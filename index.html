@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venicit - Premium Digital Products</title>
+    <title>Venicit - Premium Tech Components</title>
     <style>
         body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f5; margin: 0; display: flex; flex-direction: column; min-height: 100vh; }
         header { background: white; padding: 1rem 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; color: #111827; text-decoration: none; }
         .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem; }
-        .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); text-align: center; max-width: 320px; width: 100%; }
-        h1 { font-size: 1.5rem; color: #111827; margin-bottom: 0.5rem; }
-        .price { font-size: 1.25rem; color: #10b981; font-weight: bold; margin-bottom: 2rem; }
+        .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); text-align: center; max-width: 350px; width: 100%; }
+        h1 { font-size: 1.4rem; color: #111827; margin-bottom: 0.5rem; }
+        .price { font-size: 1.5rem; color: #10b981; font-weight: bold; margin-bottom: 1rem; }
+        .description { font-size: 0.85rem; color: #4b5563; margin-bottom: 1.5rem; line-height: 1.4; text-align: left; background: #f9fafb; padding: 1rem; border-radius: 8px;}
         #paypal-button-container { width: 100%; margin-top: 1rem; min-height: 150px; }
         footer { padding: 2rem; text-align: center; font-size: 0.75rem; color: #9ca3af; }
         footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
@@ -23,14 +24,18 @@
 
     <header>
         <a href="/" class="logo">VENICIT</a>
-        <div style="font-size: 0.8rem; color: #6b7280;">Secure Checkout</div>
+        <div style="font-size: 0.8rem; color: #10b981;">● Verified Global Merchant</div>
     </header>
 
     <div class="container">
         <div class="card">
-            <h1>Premium Product</h1>
-            <div class="price">$10.00</div>
-            <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 1.5rem;">Instant access to our premium digital suite upon successful payment.</p>
+            <h1>Premium Link Component</h1>
+            <div class="price">$20.00</div>
+            <div class="description">
+                <strong>Model:</strong> V1-Core<br>
+                <strong>Type:</strong> Audio/Visual Interface<br>
+                <strong>Shipping:</strong> International Priority Mail Included
+            </div>
             
             <div id="paypal-button-container"></div>
         </div>
@@ -38,21 +43,24 @@
 
     <footer>
         <div style="margin-bottom: 0.5rem;">
-            <a href="/contact.html">Terms of Service</a> • 
-            <a href="/contact.html">Privacy Policy</a> • 
+            <a href="/contact.html">Shipping Policy</a> • 
+            <a href="/contact.html">Returns</a> • 
             <a href="/contact.html">Contact Support</a>
         </div>
-        <p>© 2026 Venicit Digital Media. All rights reserved.</p>
-        <p>Protected by PayPal Secure Encryption</p>
+        <p>© 2026 Venicit - Canuck Digital Media Inc.</p>
+        <p>Logistics partner: International Priority Mail</p>
     </footer>
 
     <script>
         paypal.Buttons({
+            // This is the magic line that forces PayPal to ask for a shipping address
+            shipping_preference: 'GET_FROM_FILE', 
+            
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
-                        amount: { value: '10.00' },
-                        description: 'Premium Digital Product - Venicit'
+                        amount: { value: '20.00' },
+                        description: 'Venicit Premium Link Component - Model V1'
                     }]
                 });
             },
