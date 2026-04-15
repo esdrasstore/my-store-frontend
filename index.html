@@ -72,7 +72,7 @@
         footer a:hover { text-decoration: underline; }  
     </style>  
 
-    <script src="https://www.paypal.com/sdk/js?client-id=BAAwWgdMWsO6_2QGDU1ZDbeqcJJaQoJDgn2ZJmGhIivHJh_PkMd-fAo6IVAdeAYYqgBrXt18ZadVV4ZEk0&currency=USD"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AQnzgzUCt0nihdBr6pptxN92Z8kNtlUoHdoYx8vzAb7zPB3fsmomefFyk-ZhbDCIRu7POYlF4wlM4VcM&currency=USD"></script>
 </head>  
 <body>  
 
@@ -113,7 +113,6 @@
         paypal.Buttons({  
             createOrder: function(data, actions) {  
                 return actions.order.create({  
-                    // Fixed the payload structure for the Live API
                     intent: 'CAPTURE',
                     purchase_units: [{  
                         amount: { 
