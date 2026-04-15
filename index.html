@@ -12,7 +12,6 @@
             flex-direction: column;  
             min-height: 100vh; 
             
-            /* Light-Grey Frosting Overlay + Audio Studio Background */
             background: linear-gradient(rgba(244, 244, 245, 0.85), rgba(244, 244, 245, 0.85)), 
                         url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
@@ -35,7 +34,6 @@
             text-decoration: none; 
         }  
         
-        /* New PayPal-Styled Merchant Status */
         .merchant-status {
             font-weight: bold; 
             font-size: 1rem; 
@@ -45,8 +43,8 @@
             gap: 4px;
         }
         .pp-dot { color: #0079C1; font-size: 1.2rem; margin-right: 2px; }
-        .pp-dark { color: #003087; } /* PayPal Dark Blue */
-        .pp-light { color: #0079C1; } /* PayPal Light Blue */
+        .pp-dark { color: #003087; } 
+        .pp-light { color: #0079C1; } 
 
         .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem; }  
 
@@ -113,15 +111,20 @@
 
     <script>  
         paypal.Buttons({  
-            shipping_preference: 'GET_FROM_FILE',   
-            
             createOrder: function(data, actions) {  
                 return actions.order.create({  
+                    // Fixed the payload structure for the Live API
+                    intent: 'CAPTURE',
                     purchase_units: [{  
-                        // Updated Checkout Amount
-                        amount: { value: '90.00' },  
+                        amount: { 
+                            currency_code: 'USD',
+                            value: '90.00' 
+                        },  
                         description: 'Studio-Grade PS Audio Cable - V1 Core'  
-                    }]  
+                    }],
+                    application_context: {
+                        shipping_preference: 'GET_FROM_FILE'
+                    }
                 });  
             },  
             onApprove: function(data, actions) {  
