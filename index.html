@@ -74,7 +74,7 @@
         footer a:hover { text-decoration: underline; }  
     </style>  
 
-    <script src="https://www.paypal.com/sdk/js?client-id=BAA2ROVMef358UGWn2GTLP56s9eSWI7JffOrMXYZiNCMJuACbaL5cvbVm5nIm9K5nCZbjGPZFwdFDuPtPk&currency=USD"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAwWgdMWsO6_2QGDU1ZDbeqcJJaQoJDgn2ZJmGhIivHJh_PkMd-fAo6IVAdeAYYqgBrXt18ZadVV4ZEk0&currency=USD"></script>
 </head>  
 <body>  
 
@@ -90,7 +90,7 @@
     <div class="container">  
         <div class="card">  
             <h1>Studio-Grade PS Audio Cable</h1>  
-            <div class="price">$3.80</div>  
+            <div class="price">$90.00</div>  
             <div class="description">  
                 <strong>Model:</strong> V1-Core<br>  
                 <strong>Type:</strong> Audio/Visual Interface<br>  
@@ -118,7 +118,8 @@
             createOrder: function(data, actions) {  
                 return actions.order.create({  
                     purchase_units: [{  
-                        amount: { value: '3.80' },  
+                        // Updated Checkout Amount
+                        amount: { value: '90.00' },  
                         description: 'Studio-Grade PS Audio Cable - V1 Core'  
                     }]  
                 });  
