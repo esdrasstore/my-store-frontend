@@ -11,7 +11,6 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-          
             background: linear-gradient(rgba(244, 244, 245, 0.85), rgba(244, 244, 245, 0.85)),
                         url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
@@ -61,13 +60,28 @@
             margin-bottom: 1.5rem; line-height: 1.4; text-align: left; background: #f9fafb;
             padding: 1rem; border-radius: 8px;
         }
-        #paypal-button-container { width: 100%; margin-top: 1rem; min-height: 150px; }
-      
+        .paypal-btn {
+            display: inline-block;
+            background: #0079C1;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 1rem;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+        .paypal-btn:hover {
+            background: #003087;
+            transform: translateY(-1px);
+        }
         footer { padding: 2rem; text-align: center; font-size: 0.75rem; color: #9ca3af; }
         footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
         footer a:hover { text-decoration: underline; }
     </style>
-    <script src="https://www.paypal.com/sdk/js?client-id=Ae3Gyzb23VqKLtb3xeTDMpz_48ccdImx9RTNTHu1BUHt-J1XH0SpUrrrzQTTqMnw3mkTIanZxrYTd1fq&currency=USD"></script>
 </head>
 <body>
     <header>
@@ -87,8 +101,13 @@
                 <strong>Type:</strong> Audio/Visual Interface<br>
                 <strong>Shipping:</strong> International Priority Mail Included
             </div>
-          
-            <div id="paypal-button-container"></div>
+            
+            <!-- PayPal.me button - personal account friendly -->
+            <a href="https://paypal.me/ALARBIZIAD/3.69" 
+               class="paypal-btn" 
+               target="_blank">
+               Pay with PayPal
+            </a>
         </div>
     </div>
     <footer>
@@ -100,32 +119,5 @@
         <p>© 2026 Venicit Audio Components. All rights reserved.</p>
         <p>Logistics partner: International Priority Mail</p>
     </footer>
-    <script>
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    intent: 'CAPTURE',
-                    purchase_units: [{
-                        amount: {
-                            currency_code: 'USD',
-                            value: '3.69'
-                        },
-                        description: 'Studio-Grade PS Audio Cable - V1 Core'
-                    }],
-                    application_context: {
-                        shipping_preference: 'GET_FROM_FILE'
-                    }
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(orderData) {
-                    window.location.href = "/success.html";
-                });
-            },
-            onError: function(err) {
-                console.error('PayPal Checkout Error', err);
-            }
-        }).render('#paypal-button-container');
-    </script>
 </body>
 </html>
