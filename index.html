@@ -1,140 +1,131 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Venicit - Premium Tech Components</title>  
-    <style>  
-        body { 
-            font-family: 'Helvetica Neue', Arial, sans-serif;  
-            margin: 0; 
-            display: flex; 
-            flex-direction: column;  
-            min-height: 100vh; 
-            
-            background: linear-gradient(rgba(244, 244, 245, 0.85), rgba(244, 244, 245, 0.85)), 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venicit - Premium Tech Components</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+           
+            background: linear-gradient(rgba(244, 244, 245, 0.85), rgba(244, 244, 245, 0.85)),
                         url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
-        }  
-
-        header { 
-            background: white; 
-            padding: 1rem 2rem; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
-            display: flex; 
-            justify-content: space-between;  
-            align-items: center; 
-        }  
-        
-        .logo { 
-            font-weight: bold; 
-            font-size: 1.2rem; 
-            letter-spacing: 1px; 
-            color: #111827; 
-            text-decoration: none; 
-        }  
-        
+        }
+        header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+       
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: #111827;
+            text-decoration: none;
+        }
+       
         .merchant-status {
-            font-weight: bold; 
-            font-size: 1rem; 
-            letter-spacing: 1px; 
+            font-weight: bold;
+            font-size: 1rem;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 4px;
         }
         .pp-dot { color: #0079C1; font-size: 1.2rem; margin-right: 2px; }
-        .pp-dark { color: #003087; } 
-        .pp-light { color: #0079C1; } 
-
-        .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem; }  
-
-        .card { 
-            background: white; 
-            padding: 2.5rem; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); 
-            text-align: center;  
-            max-width: 350px; 
-            width: 100%; 
-        }  
-        h1 { font-size: 1.4rem; color: #111827; margin-bottom: 0.5rem; }  
-        .price { font-size: 1.5rem; color: #10b981; font-weight: bold; margin-bottom: 1rem; }  
-
-        .description { 
-            font-size: 0.85rem; color: #4b5563;  
-            margin-bottom: 1.5rem; line-height: 1.4; text-align: left; background: #f9fafb; 
+        .pp-dark { color: #003087; }
+        .pp-light { color: #0079C1; }
+        .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem; }
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        h1 { font-size: 1.4rem; color: #111827; margin-bottom: 0.5rem; }
+        .price { font-size: 1.5rem; color: #10b981; font-weight: bold; margin-bottom: 1rem; }
+        .description {
+            font-size: 0.85rem; color: #4b5563;
+            margin-bottom: 1.5rem; line-height: 1.4; text-align: left; background: #f9fafb;
             padding: 1rem; border-radius: 8px;
-        }  
-        #paypal-button-container { width: 100%; margin-top: 1rem; min-height: 150px; }  
-        
-        footer { padding: 2rem; text-align: center; font-size: 0.75rem; color: #9ca3af; }  
-        footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }  
-        footer a:hover { text-decoration: underline; }  
-    </style>  
-
-    <script src="https://www.paypal.com/sdk/js?client-id=AQnzgzUCt0nihdBr6pptxN92Z8kNtlUoHdoYx8vzAb7zPB3fsmomefFyk-ZhbDCIRu7POYlF4wlM4VcM&currency=USD"></script>
-</head>  
-<body>  
-
-    <header>  
-        <a href="/" class="logo">VENICIT</a>  
+        }
+        #paypal-button-container { width: 100%; margin-top: 1rem; min-height: 150px; }
+       
+        footer { padding: 2rem; text-align: center; font-size: 0.75rem; color: #9ca3af; }
+        footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+    <script src="https://www.paypal.com/sdk/js?client-id=Ae3Gyzb23VqKLtb3xeTDMpz_48ccdImx9RTNTHu1BUHt-J1XH0SpUrrrzQTTqMnw3mkTIanZxrYTd1fq&currency=USD"></script>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">VENICIT</a>
         <div class="merchant-status">
-            <span class="pp-dot">●</span> 
-            <span class="pp-dark">Verified</span> 
+            <span class="pp-dot">●</span>
+            <span class="pp-dark">Verified</span>
             <span class="pp-light">Global Merchant</span>
-        </div>  
-    </header>  
-
-    <div class="container">  
-        <div class="card">  
-            <h1>Studio-Grade PS Audio Cable</h1>  
-            <div class="price">$3.70</div>  
-            <div class="description">  
-                <strong>Model:</strong> V1-Core<br>  
-                <strong>Type:</strong> Audio/Visual Interface<br>  
-                <strong>Shipping:</strong> International Priority Mail Included  
-            </div>  
-            
-            <div id="paypal-button-container"></div>  
-        </div>  
-    </div>  
-
-    <footer>  
-        <div style="margin-bottom: 0.5rem;">  
-            <a href="/shipping.html">Shipping Policy</a> •   
-            <a href="/returns.html">Returns</a> •   
-            <a href="/contact.html">Contact Support</a>  
-        </div>  
-        <p>© 2026 Venicit Audio Components. All rights reserved.</p>  
-        <p>Logistics partner: International Priority Mail</p>  
-    </footer>  
-
-    <script>  
-        paypal.Buttons({  
-            createOrder: function(data, actions) {  
-                return actions.order.create({  
+        </div>
+    </header>
+    <div class="container">
+        <div class="card">
+            <h1>Studio-Grade PS Audio Cable</h1>
+            <div class="price">$3.70</div>
+            <div class="description">
+                <strong>Model:</strong> V1-Core<br>
+                <strong>Type:</strong> Audio/Visual Interface<br>
+                <strong>Shipping:</strong> International Priority Mail Included
+            </div>
+           
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+    <footer>
+        <div style="margin-bottom: 0.5rem;">
+            <a href="/shipping.html">Shipping Policy</a> •
+            <a href="/returns.html">Returns</a> •
+            <a href="/contact.html">Contact Support</a>
+        </div>
+        <p>© 2026 Venicit Audio Components. All rights reserved.</p>
+        <p>Logistics partner: International Priority Mail</p>
+    </footer>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
                     intent: 'CAPTURE',
-                    purchase_units: [{  
-                        amount: { 
+                    purchase_units: [{
+                        amount: {
                             currency_code: 'USD',
-                            value: '3.70' 
-                        },  
-                        description: 'Studio-Grade PS Audio Cable - V1 Core'  
+                            value: '3.70'
+                        },
+                        description: 'Studio-Grade PS Audio Cable - V1 Core'
                     }],
                     application_context: {
                         shipping_preference: 'GET_FROM_FILE'
                     }
-                });  
-            },  
-            onApprove: function(data, actions) {  
-                return actions.order.capture().then(function(orderData) {  
-                    window.location.href = "/success.html";  
-                });  
-            },  
-            onError: function(err) {  
-                console.error('PayPal Checkout Error', err);  
-            }  
-        }).render('#paypal-button-container');  
-    </script>  
-</body>  
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    window.location.href = "/success.html";
+                });
+            },
+            onError: function(err) {
+                console.error('PayPal Checkout Error', err);
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
 </html>
