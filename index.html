@@ -23,7 +23,6 @@
             justify-content: space-between;
             align-items: center;
         }
-      
         .logo {
             font-weight: bold;
             font-size: 1.2rem;
@@ -31,7 +30,6 @@
             color: #111827;
             text-decoration: none;
         }
-      
         .merchant-status {
             font-weight: bold;
             font-size: 1rem;
@@ -73,6 +71,8 @@
             width: 100%;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
             transition: all 0.2s;
+            border: none;
+            cursor: pointer;
         }
         .paypal-btn:hover {
             background: #003087;
@@ -101,13 +101,26 @@
                 <strong>Type:</strong> Audio/Visual Interface<br>
                 <strong>Shipping:</strong> International Priority Mail Included
             </div>
-            
-            <!-- PayPal.me button - personal account friendly -->
-            <a href="https://paypal.me/ALARBIZIAD/3.69" 
-               class="paypal-btn" 
-               target="_blank">
-               Pay with PayPal
-            </a>
+           
+            <!-- Classic PayPal Buy Now button (Option 2) - works with personal account -->
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="kalyadiskya@gmail.com">
+                <input type="hidden" name="item_name" value="Studio-Grade PS Audio Cable">
+                <input type="hidden" name="amount" value="3.69">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="shipping" value="0">
+                <input type="hidden" name="return" value="https://venicit.com/success.html">
+                <input type="hidden" name="cancel_return" value="https://venicit.com">
+
+                <button type="submit" class="paypal-btn">
+                    Buy Now – $3.69
+                </button>
+            </form>
+
+            <p style="margin-top: 12px; font-size: 0.8rem; color: #6b7280;">
+                Credit card accepted • No PayPal account required
+            </p>
         </div>
     </div>
     <footer>
