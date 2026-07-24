@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /request-reading.html
+
+Sitemap: https://venicit.com/sitemap.xml
