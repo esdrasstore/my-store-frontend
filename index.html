@@ -1,159 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venicit - Premium Tech Components</title>
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background: linear-gradient(rgba(244, 244, 245, 0.85), rgba(244, 244, 245, 0.85)),
-                        url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
-            background-size: cover;
-        }
-        header {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-weight: bold;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            color: #111827;
-            text-decoration: none;
-        }
-        .merchant-status {
-            font-weight: bold;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .pp-dot { color: #0079C1; font-size: 1.2rem; margin-right: 2px; }
-        .pp-dark { color: #003087; }
-        .pp-light { color: #0079C1; }
-        .container { flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem; }
-        .card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 350px;
-            width: 100%;
-        }
-        h1 { font-size: 1.4rem; color: #111827; margin-bottom: 0.5rem; }
-        .price { font-size: 1.5rem; color: #10b981; font-weight: bold; margin-bottom: 1rem; }
-        .description {
-            font-size: 0.85rem; color: #4b5563;
-            margin-bottom: 1.5rem; line-height: 1.4; text-align: left; background: #f9fafb;
-            padding: 1rem; border-radius: 8px;
-        }
-        .paypal-btn {
-            display: inline-block;
-            background: #0079C1;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-top: 1rem;
-            width: 100%;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-        .paypal-btn:hover {
-            background: #003087;
-            transform: translateY(-1px);
-        }
-        .guest-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            margin-top: 12px;
-            font-size: 0.8rem;
-            color: #6b7280;
-        }
-        .guest-badge span { 
-            background: #f3f4f6; 
-            padding: 3px 8px; 
-            border-radius: 4px; 
-        }
-        footer { padding: 2rem; text-align: center; font-size: 0.75rem; color: #9ca3af; }
-        footer a { color: #9ca3af; text-decoration: none; margin: 0 8px; }
-        footer a:hover { text-decoration: underline; }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Venicit | Private Guidance by Esdras</title>
+
+<meta name="description"
+content="Certified Social Coach and Intuitive Guide offering confidential private support sessions by phone or live chat. Same-day availability worldwide.">
+
+<meta name="author" content="Esdras">
+
+<meta name="robots" content="index,follow">
+
+<link rel="canonical" href="https://venicit.com/">
+
+<link rel="icon" href="images/favicon.png">
+
+<link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-    <header>
-        <a href="/" class="logo">VENICIT</a>
-        <div class="merchant-status">
-            <span class="pp-dot">●</span>
-            <span class="pp-dark">Verified</span>
-            <span class="pp-light">Global Merchant</span>
-        </div>
-    </header>
 
-    <div class="container">
-        <div class="card">
-            <h1>Studio-Grade PS Audio Cable</h1>
-            <div class="price">$3.69</div>
-            <div class="description">
-                <strong>Model:</strong> V1-Core<br>
-                <strong>Type:</strong> Audio/Visual Interface<br>
-                <strong>Shipping:</strong> International Priority Mail Included
-            </div>
+<header>
 
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd"           value="_xclick">
-                <input type="hidden" name="business"      value="kalyadiskya@gmail.com">
-                <input type="hidden" name="item_name"     value="Studio-Grade PS Audio Cable">
-                <input type="hidden" name="amount"        value="3.69">
-                <input type="hidden" name="currency_code" value="USD">
-                <input type="hidden" name="shipping"      value="0">
-                <input type="hidden" name="no_shipping"   value="1">
+<nav class="navbar">
 
-                <!-- ✅ These two lines force card/guest checkout, bypass PayPal login screen -->
-                <input type="hidden" name="landing_page"  value="Login">
-                <input type="hidden" name="solution_type" value="Sole">
+<div class="logo">
 
-                <input type="hidden" name="return"        value="https://venicit.com/success.html">
-                <input type="hidden" name="cancel_return" value="https://venicit.com">
+<a href="index.html">
 
-                <button type="submit" class="paypal-btn">
-                    Buy Now – $3.69
-                </button>
-            </form>
+Venicit
 
-            <div class="guest-badge">
-                <span>💳 Card accepted</span>
-                <span>🔒 Secure checkout</span>
-                <span>No account needed</span>
-            </div>
-        </div>
-    </div>
+</a>
 
-    <footer>
-        <div style="margin-bottom: 0.5rem;">
-            <a href="/shipping.html">Shipping Policy</a> •
-            <a href="/returns.html">Returns</a> •
-            <a href="/contact.html">Contact Support</a>
-        </div>
-        <p>© 2026 Venicit Audio Components. All rights reserved.</p>
-        <p>Logistics partner: International Priority Mail</p>
-    </footer>
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="sessions.html">Sessions</a></li>
+
+<li><a href="faq.html">FAQ</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+<a href="sessions.html" class="book-btn">
+
+Book Now
+
+</a>
+
+</nav>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="hero-overlay">
+
+<h1>
+
+Find The Path Forward
+
+</h1>
+
+<p class="subtitle">
+
+Certified Social Coach • Intuitive Guide • 45+ Years Experience
+
+</p>
+
+<p class="hero-text">
+
+When life becomes too heavy to navigate alone, sometimes what you need isn't another opinion.
+
+It's someone capable of helping you see the path that emotion has hidden from view.
+
+</p>
+
+<a href="sessions.html" class="hero-button">
+
+Book Your Private Session
+
+</a>
+
+</div>
+
+</section>
+
+<section class="trust">
+
+<div class="trust-item">
+
+Worldwide
+
+</div>
+
+<div class="trust-item">
+
+Phone or Live Chat
+
+</div>
+
+<div class="trust-item">
+
+Same-Day Availability
+
+</div>
+
+<div class="trust-item">
+
+Completely Confidential
+
+</div>
+
+</section>
+
+<section class="about-preview">
+
+<h2>
+
+A Different Kind of Guidance
+
+</h2>
+
+<p>
+
+I combine decades of intuitive experience with certified social coaching to help people untangle situations that feel impossible to solve from the inside.
+
+Rather than offering empty reassurance, every session is designed to uncover overlooked perspectives, identify practical paths forward, and restore clarity when emotions have made the next step difficult to see.
+
+</p>
+
+<a href="about.html">
+
+Learn More →
+
+</a>
+
+</section>
+
+<section class="how-it-works">
+
+<h2>
+
+How Your Session Works
+
+</h2>
+
+<div class="cards">
+
+<article>
+
+<h3>
+
+1. Share
+
+</h3>
+
+<p>
+
+Tell me what is weighing on your mind.
+
+</p>
+
+</article>
+
+<article>
+
+<h3>
+
+2. Explore
+
+</h3>
+
+<p>
+
+Together we examine your situation from perspectives that may have gone unseen.
+
+</p>
+
+</article>
+
+<article>
+
+<h3>
+
+3. Move Forward
+
+</h3>
+
+<p>
+
+Leave with practical direction, renewed clarity and a stronger sense of purpose.
+
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+<section class="services">
+
+<h2>
+
+Private Support Sessions
+
+</h2>
+
+<div class="service-card">
+
+<h3>
+
+60 Minute Private Support Session
+
+</h3>
+
+<p>
+
+Available by Phone or Live Chat.
+
+Same-Day scheduling whenever possible.
+
+</p>
+
+<a href="sessions.html">
+
+Book Session
+
+</a>
+
+</div>
+
+</section>
+
+<section class="quote">
+
+<blockquote>
+
+"Sometimes we are not searching for answers.
+
+We are searching for someone capable of helping us ask the questions that change everything."
+
+</blockquote>
+
+</section>
+
+<section class="cta">
+
+<h2>
+
+Ready To Move Forward?
+
+</h2>
+
+<p>
+
+Private. Confidential. Worldwide.
+
+</p>
+
+<a href="sessions.html">
+
+Schedule Your Session
+
+</a>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+
+© 2026 Venicit • Private Guidance by Esdras
+
+</p>
+
+<nav>
+
+<a href="privacy.html">
+
+Privacy
+
+</a>
+
+<a href="terms.html">
+
+Terms
+
+</a>
+
+</nav>
+
+</footer>
+
+<script src="js/script.js"></script>
+
 </body>
+
 </html>
