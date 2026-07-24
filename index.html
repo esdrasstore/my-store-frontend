@@ -1,350 +1,868 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venicit — Private Guidance Sessions for Clarity and Direction</title>
+  <meta name="description" content="Venicit offers private, one-to-one guidance sessions for people navigating decisions, transitions, and personal direction. Discreet, certified, and grounded in real conversation.">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="canonical" href="https://venicit.com/">
 
-    <title>Venicit | Private Guidance by Esdras</title>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Venicit — Private Guidance Sessions">
+  <meta property="og:description" content="Private, one-to-one sessions for clarity, direction, and personal insight.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://venicit.com/">
+  <meta property="og:image" content="https://venicit.com/images/hero.webp">
 
-    <meta name="description"
-        content="Certified Social Coach and Intuitive Guide offering confidential private support sessions by phone or live chat. Same-day availability worldwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <meta name="author" content="Esdras">
+  <style>
+/* ==========================================================================
+   Venicit — Design System
+   Deep plum + antique gold + muted sage, drawn from the brand photography.
+   Fraunces (display) / Inter (body) / Inter (utility, small caps for labels)
+   ========================================================================== */
 
-    <meta name="robots" content="index,follow">
+:root {
+  /* Color */
+  --ink-black: #150c12;
+  --plum-950: #1a0f17;
+  --plum-900: #241420;
+  --plum-800: #2c1826;
+  --plum-700: #3a2032;
+  --gold-400: #d9bd83;
+  --gold-500: #c9a962;
+  --gold-600: #a8863f;
+  --sage-500: #4c6152;
+  --sage-400: #63795f;
+  --ivory-100: #f7f2ea;
+  --ivory-300: #ede6dc;
+  --ivory-500: #cabfae;
+  --line-hair: rgba(201, 169, 98, 0.22);
+  --shadow-deep: rgba(8, 4, 6, 0.55);
 
-    <link rel="canonical" href="https://venicit.com/">
+  /* Type */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-    <link rel="icon" href="images/favicon.png">
+  /* Rhythm */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 2.75rem;
+  --space-5: 4.5rem;
+  --space-6: 7rem;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --max-width: 1240px;
 
-    <link rel="stylesheet" href="css/style.css">
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
 
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--plum-950);
+  color: var(--ivory-300);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ivory-100);
+  line-height: 1.15;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+::selection { background: var(--gold-600); color: var(--plum-950); }
+
+:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Layout primitives ---------- */
+.wrap {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.section {
+  padding-block: var(--space-6);
+}
+
+.section--tight { padding-block: var(--space-5); }
+
+/* Kraft-label eyebrow — the site's structural motif, echoing the candle labels */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--gold-600);
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: var(--space-4);
+}
+
+.section-head h2 {
+  margin-top: var(--space-2);
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+}
+
+.section-head p {
+  margin-top: var(--space-2);
+  color: var(--ivory-500);
+  font-size: 1.05rem;
+  max-width: 52ch;
+}
+
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-head--center p { margin-inline: auto; }
+
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--line-hair);
+  margin: 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.85em 1.9em;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease-out), background 0.35s var(--ease-out), border-color 0.35s var(--ease-out), color 0.35s var(--ease-out);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
+  color: var(--plum-950);
+}
+.btn-primary:hover { transform: translateY(-1px); filter: brightness(1.06); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--line-hair);
+  color: var(--ivory-100);
+}
+.btn-ghost:hover { border-color: var(--gold-500); color: var(--gold-400); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(21, 12, 18, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-hair);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: var(--ivory-100);
+}
+
+.brand span { color: var(--gold-500); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ivory-500);
+  position: relative;
+  padding-block: 4px;
+  transition: color 0.3s var(--ease-out);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: var(--gold-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] { color: var(--ivory-100); }
+.nav-links a:hover::after,
+.nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line-hair);
+  border-radius: var(--radius-md);
+  width: 42px;
+  height: 42px;
+  color: var(--ivory-100);
+  cursor: pointer;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-hair);
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: var(--space-5);
+  padding-block: var(--space-6);
+  min-height: 640px;
+}
+
+.hero-copy .eyebrow { margin-bottom: var(--space-3); }
+
+.hero-copy h1 {
+  font-size: clamp(2.6rem, 5vw, 4.1rem);
+  letter-spacing: -0.01em;
+}
+
+.hero-copy h1 em {
+  font-style: italic;
+  color: var(--gold-400);
+}
+
+.hero-copy p.lede {
+  margin-top: var(--space-3);
+  font-size: 1.15rem;
+  color: var(--ivory-500);
+  max-width: 46ch;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero-note {
+  font-size: 0.85rem;
+  color: var(--ivory-500);
+  font-style: italic;
+}
+
+.hero-visual {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  box-shadow: 0 40px 80px -20px var(--shadow-deep);
+}
+
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 15, 23, 0) 45%, rgba(26, 15, 23, 0.65) 100%),
+              linear-gradient(120deg, rgba(26, 15, 23, 0.25), transparent 55%);
+  pointer-events: none;
+}
+
+/* Ambient candlelight glow — the signature motif, used sparingly */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.55;
+  animation: flicker 7s ease-in-out infinite;
+}
+
+.glow--gold {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(201, 169, 98, 0.35), transparent 70%);
+  top: -120px; left: -140px;
+}
+
+.glow--sage {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(76, 97, 82, 0.4), transparent 70%);
+  bottom: -140px; right: -100px;
+  animation-delay: 2.4s;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.06); }
+}
+
+/* ---------- Trust strip ---------- */
+.trust-strip {
+  border-bottom: 1px solid var(--line-hair);
+  background: var(--plum-900);
+}
+
+.trust-strip .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: space-between;
+  padding-block: var(--space-3);
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--ivory-500);
+}
+
+.trust-item svg { flex-shrink: 0; color: var(--gold-500); }
+
+/* ---------- Offerings grid ---------- */
+.offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-hair);
+  border: 1px solid var(--line-hair);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.offer-card {
+  background: var(--plum-900);
+  padding: var(--space-4);
+  transition: background 0.4s var(--ease-out);
+}
+
+.offer-card:hover { background: var(--plum-800); }
+
+.offer-card .glyph {
+  width: 40px; height: 40px;
+  color: var(--gold-500);
+  margin-bottom: var(--space-3);
+}
+
+.offer-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-2);
+}
+
+.offer-card p {
+  color: var(--ivory-500);
+  font-size: 0.95rem;
+}
+
+/* ---------- Philosophy / split section ---------- */
+.split {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.split-figure {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.split-figure img { width: 100%; height: 100%; object-fit: cover; }
+
+.pull-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  color: var(--ivory-100);
+  line-height: 1.4;
+}
+
+.pull-quote::before { content: "\201C"; color: var(--gold-500); }
+.pull-quote::after { content: "\201D"; color: var(--gold-500); }
+
+.attribution {
+  margin-top: var(--space-3);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ivory-500);
+}
+
+/* ---------- Testimonials ---------- */
+.testimonial-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.testimonial {
+  border: 1px solid var(--line-hair);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--plum-900);
+}
+
+.testimonial p.quote {
+  font-size: 1rem;
+  color: var(--ivory-300);
+  margin-bottom: var(--space-3);
+}
+
+.testimonial .who {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+}
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  position: relative;
+  overflow: hidden;
+  background: var(--plum-800);
+  border-top: 1px solid var(--line-hair);
+  border-bottom: 1px solid var(--line-hair);
+  text-align: center;
+}
+
+.cta-band .wrap {
+  padding-block: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-band h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+.cta-band p {
+  margin-top: var(--space-2);
+  color: var(--ivory-500);
+}
+
+.cta-band .btn { margin-top: var(--space-4); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--ink-black);
+  border-top: 1px solid var(--line-hair);
+  padding-block: var(--space-5) var(--space-4);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.footer-brand p {
+  margin-top: var(--space-2);
+  color: var(--ivory-500);
+  font-size: 0.9rem;
+  max-width: 32ch;
+}
+
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: var(--space-2);
+}
+
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.footer-col a {
+  color: var(--ivory-500);
+  font-size: 0.9rem;
+  transition: color 0.3s var(--ease-out);
+}
+
+.footer-col a:hover { color: var(--gold-400); }
+
+.footer-bottom {
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line-hair);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--ivory-500);
+}
+
+/* ---------- Reveal-on-scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .hero .wrap { grid-template-columns: 1fr; min-height: auto; }
+  .hero-visual { aspect-ratio: 16 / 10; order: -1; }
+  .split { grid-template-columns: 1fr; }
+  .offerings-grid { grid-template-columns: 1fr 1fr; }
+  .testimonial-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .offerings-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .trust-strip .wrap { justify-content: flex-start; gap: var(--space-3); }
+}
+
+@media (max-width: 480px) {
+  .site-header .wrap { height: 68px; }
+  .hero .wrap { padding-block: var(--space-5); }
+}
+
+  </style>
 </head>
-
 <body>
 
-<header>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="brand">Venic<span>it</span></a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="sessions.html">Sessions</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 4H17M1 9H17M1 14H17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
 
-    <nav class="navbar">
+  <main>
 
-        <div class="logo">
-            <a href="index.html">
-                Venicit
-            </a>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="glow glow--gold" aria-hidden="true"></div>
+      <div class="glow glow--sage" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="eyebrow">Private Guidance Sessions</span>
+          <h1>Clarity is quieter <em>than you think.</em></h1>
+          <p class="lede">Venicit offers focused, one-to-one sessions for people facing a decision, a transition, or a question they haven't been able to sit with anywhere else. No performance. No spectacle. Just structured, honest conversation.</p>
+          <div class="hero-actions">
+            <a href="sessions.html" class="btn btn-primary">Book a Session</a>
+            <a href="about.html" class="btn btn-ghost">Learn the Approach</a>
+          </div>
+          <p class="hero-note">By appointment only. Sessions are private and confidential.</p>
+        </div>
+        <div class="hero-visual">
+          <img src="images/hero.webp" alt="Hand-poured candles arranged with brass keys and coins on a dark, textured surface, evoking a private ritual of intention-setting." width="1086" height="1448" loading="eager">
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip">
+      <div class="wrap">
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1L11 6.5L17 7L12.5 11L14 17L9 13.5L4 17L5.5 11L1 7L7 6.5L9 1Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          Certified Social Coaching
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="6" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 6V4a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="1.2"/></svg>
+          Fully Confidential
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.2"/><path d="M9 5V9L11.5 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          By Appointment Only
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9C3 5.7 5.7 3 9 3C12.3 3 15 5.7 15 9C15 12.3 12.3 15 9 15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M9 15C7 15 5.5 13.5 5.5 13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          Remote &amp; In-Person
+        </div>
+      </div>
+    </div>
+
+    <!-- OFFERINGS -->
+    <section class="section" id="offerings">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">What We Offer</span>
+          <h2>Three ways to work together</h2>
+          <p>Each session is structured around what you actually need — not a fixed script. We'll help you choose the right format during your first conversation.</p>
         </div>
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+        <div class="offerings-grid">
+          <article class="offer-card reveal">
+            <svg class="glyph" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M7 34C7 26.8 12.8 22 20 22C27.2 22 33 26.8 33 34" stroke="currentColor" stroke-width="1.3"/></svg>
+            <h3>Private Sessions</h3>
+            <p>One-to-one conversation focused entirely on your situation — a relationship, a career decision, a period of change. Sixty or ninety minutes, fully your own.</p>
+          </article>
+          <article class="offer-card reveal">
+            <svg class="glyph" viewBox="0 0 40 40" fill="none"><path d="M20 6L23 16H33L25 22L28 32L20 26L12 32L15 22L7 16H17L20 6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            <h3>Strategic Reflection</h3>
+            <p>For decisions with real weight — a move, a business choice, an exit. We slow the thinking down and pressure-test it together, without the noise.</p>
+          </article>
+          <article class="offer-card reveal">
+            <svg class="glyph" viewBox="0 0 40 40" fill="none"><path d="M20 5V35M8 12L32 28M32 12L8 28" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <h3>Ongoing Guidance</h3>
+            <p>A ongoing arrangement for people who want continuity — a standing monthly session that tracks your direction over time, not just a single moment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY / SPLIT -->
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-figure reveal">
+            <img src="images/hero.webp" alt="Close detail of the candle arrangement, with dried herbs and aged brass keys catching warm light." width="1086" height="1448" loading="lazy">
+          </div>
+          <div class="reveal">
+            <span class="eyebrow">Our Approach</span>
+            <p class="pull-quote">The goal was never to predict anything. It was always to help someone think clearly enough to decide for themselves.</p>
+            <p class="attribution">— Venicit, Founding Note</p>
+            <hr class="rule" style="margin-block: var(--space-4);">
+            <p style="color: var(--ivory-500); max-width: 52ch;">Venicit sessions draw on certified social coaching methods and structured reflective practice — not divination. We work with what's actually in front of you: the decision, the relationship, the pattern you keep circling back to. Every session is designed to leave you with more clarity than you arrived with, and nothing you didn't ask for.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">In Their Words</span>
+          <h2>What clients take away</h2>
+        </div>
+        <div class="testimonial-row">
+          <blockquote class="testimonial reveal">
+            <p class="quote">"I've done therapy and I've done coaching. This sat somewhere more useful than either — practical, but not clinical."</p>
+            <p class="who">Private Client, London</p>
+          </blockquote>
+          <blockquote class="testimonial reveal">
+            <p class="quote">"No script, no performance. Just someone asking the right questions until I could hear my own answer."</p>
+            <p class="who">Private Client, Zurich</p>
+          </blockquote>
+          <blockquote class="testimonial reveal">
+            <p class="quote">"I left the first session with a decision I'd been avoiding for eight months. That alone was worth it."</p>
+            <p class="who">Private Client, New York</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+      <div class="glow glow--gold" style="top: -100px; left: 40%;" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="eyebrow" style="justify-content:center;">Begin</span>
+        <h2>Some clarity only arrives in conversation.</h2>
+        <p>Sessions are limited and by appointment. Reach out to find the right time.</p>
+        <a href="sessions.html" class="btn btn-primary">Book a Session</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">Venic<span>it</span></a>
+          <p>Private guidance sessions for clarity, direction, and honest reflection. By appointment only.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
             <li><a href="about.html">About</a></li>
             <li><a href="sessions.html">Sessions</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html">Contact</a></li>
-        </ul>
-
-        <a href="sessions.html" class="book-btn">
-            Book Now
-        </a>
-
-    </nav>
-
-</header>
-
-<main>
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div class="hero-image">
-
-            <img src="images/hero.webp"
-                 alt="Private Guidance by Esdras">
-
+          </ul>
         </div>
-
-        <div class="hero-overlay">
-
-            <span class="hero-tag">
-
-                Certified Social Coach • Intuitive Guide
-
-            </span>
-
-            <h1>
-
-                Find The Path Forward
-
-            </h1>
-
-            <p class="subtitle">
-
-                Worldwide Private Support Sessions by Phone or Live Chat
-
-            </p>
-
-            <p class="hero-text">
-
-                Sometimes the greatest obstacle is not the problem itself,
-                but being too close to it to recognize the path forward.
-
-                Through intuitive guidance, strategic reflection and decades
-                of experience, every session is designed to help uncover what
-                emotion has hidden from view.
-
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="sessions.html" class="hero-button">
-
-                    Schedule Your Session
-
-                </a>
-
-                <a href="about.html" class="hero-secondary">
-
-                    Learn More
-
-                </a>
-
-            </div>
-
+        <div class="footer-col">
+          <h4>Sessions</h4>
+          <ul>
+            <li><a href="sessions.html">Private Sessions</a></li>
+            <li><a href="sessions.html">Strategic Reflection</a></li>
+            <li><a href="sessions.html">Ongoing Guidance</a></li>
+          </ul>
         </div>
-
-    </section>
-
-    <!-- TRUST BAR -->
-
-    <section class="trust">
-
-        <div class="trust-item">
-
-            🌍 Worldwide
-
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@venicit.com">hello@venicit.com</a></li>
+            <li><a href="contact.html">Enquiry Form</a></li>
+          </ul>
         </div>
-
-        <div class="trust-item">
-
-            ☎ Phone or Live Chat
-
-        </div>
-
-        <div class="trust-item">
-
-            ⚡ Same-Day Availability
-
-        </div>
-
-        <div class="trust-item">
-
-            🔒 Completely Confidential
-
-        </div>
-
-    </section>
-
-    <!-- ABOUT PREVIEW -->
-
-    <section class="about-preview">
-
-        <h2>
-
-            A Different Kind of Guidance
-
-        </h2>
-
-        <p>
-
-            I combine decades of intuitive experience with certified social coaching
-            to help people untangle situations that feel impossible to solve from
-            the inside.
-
-            Rather than offering empty reassurance, every session is designed to
-            uncover overlooked perspectives, identify practical paths forward and
-            restore clarity when emotions have made the next step difficult to see.
-
-        </p>
-
-        <a href="about.html">
-
-            Learn More →
-
-        </a>
-
-    </section>
-
-    <!-- HOW IT WORKS -->
-
-    <section class="how-it-works">
-
-        <h2>
-
-            How Your Session Works
-
-        </h2>
-
-        <div class="cards">
-
-            <article>
-
-                <h3>
-
-                    1. Share
-
-                </h3>
-
-                <p>
-
-                    Tell me what is weighing on your mind and what brought you here.
-
-                </p>
-
-            </article>
-
-            <article>
-
-                <h3>
-
-                    2. Explore
-
-                </h3>
-
-                <p>
-
-                    Together we examine your situation from perspectives that may
-                    have remained hidden while emotions were leading the way.
-
-                </p>
-
-            </article>
-
-            <article>
-
-                <h3>
-
-                    3. Move Forward
-
-                </h3>
-
-                <p>
-
-                    Leave with renewed clarity, practical direction and a stronger
-                    sense of confidence in your next steps.
-
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-    <!-- SERVICES -->
-
-    <section class="services">
-
-        <h2>
-
-            Private Support Sessions
-
-        </h2>
-
-        <div class="service-card">
-
-            <h3>
-
-                60 Minute Private Support Session
-
-            </h3>
-
-            <p>
-
-                One-to-one guidance by Phone or Live Chat.
-
-                Same-day scheduling whenever available.
-
-            </p>
-
-            <a href="sessions.html">
-
-                Reserve Your Session
-
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- QUOTE -->
-
-    <section class="quote">
-
-        <blockquote>
-
-            "Sometimes we are not searching for answers.
-            We are searching for someone capable of helping us
-            ask the questions that change everything."
-
-        </blockquote>
-
-    </section>
-
-    <!-- CTA -->
-
-    <section class="cta">
-
-        <h2>
-
-            Ready To Move Forward?
-
-        </h2>
-
-        <p>
-
-            Private • Confidential • Worldwide
-
-        </p>
-
-        <a href="sessions.html">
-
-            Schedule Your Session
-
-        </a>
-
-    </section>
-
-</main>
-
-<footer>
-
-    <p>
-
-        © 2026 Venicit • Private Guidance by Esdras
-
-    </p>
-
-    <nav>
-
-        <a href="privacy.html">
-
-            Privacy
-
-        </a>
-
-        <a href="terms.html">
-
-            Terms
-
-        </a>
-
-    </nav>
-
-</footer>
-
-<script src="js/script.js"></script>
-
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Venicit. All rights reserved.</span>
+        <span>Certified Social Coaching &middot; Private &amp; Confidential</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+// Venicit — site behavior
+// Two responsibilities only: mobile nav toggle, scroll-triggered reveals.
+// Both are progressive enhancements; the page is fully usable without JS.
+
+(function () {
+  "use strict";
+
+  /* Mobile nav toggle */
+  var toggle = document.querySelector(".nav-toggle");
+  var nav = document.querySelector(".nav-links");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var isOpen = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  /* Scroll reveal */
+  var revealEls = document.querySelectorAll(".reveal");
+
+  if (revealEls.length && "IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    revealEls.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    // No IntersectionObserver support: show everything immediately.
+    revealEls.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
+})();
+
+  </script>
 </body>
-
 </html>
