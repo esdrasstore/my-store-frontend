@@ -3,18 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sessions — Venicit | Private Guidance Protocols</title>
-  <meta name="description" content="Immersive, high-end private guidance sessions designed for absolute clarity, spiritual alignment, and unfiltered truth.">
+  <title>About Esdras | Venicit — Private Guidance Sessions</title>
+  <meta name="description" content="Discover the philosophy behind Venicit. Insight, practical coaching principles, and structured reflection by Esdras.">
 
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="canonical" href="https://venicit.com/sessions.html">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Venicit — Private Guidance Protocols">
-  <meta property="og:description" content="Immersive, high-end private guidance sessions designed for absolute clarity, spiritual alignment, and unfiltered truth.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://venicit.com/sessions.html">
-  <meta property="og:image" content="https://venicit.com/hero.webp">
+  <link rel="canonical" href="https://venicit.com/about.html">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -186,7 +179,6 @@ hr.rule {
 .btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.6em;
   padding: 0.85em 1.9em;
   font-family: var(--font-body);
@@ -293,7 +285,6 @@ hr.rule {
   pointer-events: none;
   opacity: 0.55;
   animation: flicker 7s ease-in-out infinite;
-  z-index: 0;
 }
 
 .glow--gold {
@@ -312,138 +303,69 @@ hr.rule {
   50% { opacity: 0.65; transform: scale(1.06); }
 }
 
-/* ---------- Premium Session Cards ---------- */
-.sessions-layout {
-  position: relative;
-  z-index: 2;
-}
-
-.featured-session {
-  background: var(--plum-900);
+/* ---------- Offerings grid (Reused for Pillars) ---------- */
+.offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-hair);
   border: 1px solid var(--line-hair);
   border-radius: var(--radius-md);
-  padding: var(--space-5);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
-  margin-bottom: var(--space-6);
-  box-shadow: 0 40px 80px -20px var(--shadow-deep);
-  transition: background 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+  overflow: hidden;
 }
 
-.featured-session:hover {
-  background: var(--plum-800);
-}
-
-.sessions-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
-}
-
-.session-card {
+.offer-card {
   background: var(--plum-900);
-  border: 1px solid var(--line-hair);
-  border-radius: var(--radius-md);
   padding: var(--space-4);
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 20px 40px -10px var(--shadow-deep);
-  transition: background 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+  transition: background 0.4s var(--ease-out);
 }
 
-.session-card:hover {
-  background: var(--plum-800);
-  transform: translateY(-2px);
-}
+.offer-card:hover { background: var(--plum-800); }
 
-.session-header {
+.offer-card .glyph {
+  width: 40px; height: 40px;
+  color: var(--gold-500);
   margin-bottom: var(--space-3);
 }
 
-.session-header .eyebrow {
+.offer-card h3 {
+  font-size: 1.3rem;
   margin-bottom: var(--space-2);
 }
 
-.session-header h3 {
-  font-size: 2rem;
-  margin-bottom: var(--space-1);
-}
-
-.session-desc {
-  color: var(--ivory-300);
-  margin-bottom: var(--space-3);
-}
-
-.session-suited {
-  font-size: 0.95rem;
+.offer-card p {
   color: var(--ivory-500);
-  font-style: italic;
-  margin-bottom: var(--space-4);
+  font-size: 0.95rem;
 }
 
-.session-details {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-4) 0;
-  border-top: 1px solid var(--line-hair);
-  padding-top: var(--space-3);
+/* ---------- Philosophy / split section ---------- */
+.split {
   display: grid;
-  gap: 0.75rem;
-  flex-grow: 1;
-}
-
-.session-details li {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-size: 0.9rem;
-  color: var(--ivory-300);
-}
-
-.session-details .label {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold-400);
-  font-weight: 500;
-}
-
-.session-footer {
-  display: flex;
-  justify-content: space-between;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-5);
   align-items: center;
-  margin-top: auto;
-  border-top: 1px solid var(--line-hair);
-  padding-top: var(--space-4);
 }
 
-.session-price {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  color: var(--ivory-100);
-  line-height: 1;
+.split-figure {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 40px 80px -20px var(--shadow-deep);
 }
 
-/* ---------- Break Section ---------- */
-.breather-section {
-  text-align: center;
-  max-width: 800px;
-  margin-inline: auto;
-}
+.split-figure img { width: 100%; height: 100%; object-fit: cover; }
 
-.breather-section .pull-quote {
+.pull-quote {
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1.4rem, 2.4vw, 1.9rem);
   color: var(--ivory-100);
   line-height: 1.4;
-  margin-bottom: var(--space-3);
 }
 
-.breather-section .pull-quote::before { content: "\201C"; color: var(--gold-500); }
-.breather-section .pull-quote::after { content: "\201D"; color: var(--gold-500); }
+.pull-quote::before { content: "\201C"; color: var(--gold-500); }
+.pull-quote::after { content: "\201D"; color: var(--gold-500); }
 
 /* ---------- CTA band ---------- */
 .cta-band {
@@ -546,24 +468,20 @@ hr.rule {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
-  .featured-session { grid-template-columns: 1fr; gap: var(--space-4); }
-  .sessions-grid { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .offerings-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 720px) {
   .nav-links { display: none; }
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .offerings-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-3); }
-  .session-card { padding: var(--space-3); }
-  .featured-session { padding: var(--space-3); }
 }
 
 @media (max-width: 480px) {
   .site-header .wrap { height: 68px; }
-  .section-head h1 { font-size: 2.2rem; }
-  .session-footer { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
-  .session-footer .btn { width: 100%; }
 }
   </style>
 </head>
@@ -575,8 +493,8 @@ hr.rule {
       <nav aria-label="Primary">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="sessions.html" aria-current="page">Sessions</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="sessions.html">Sessions</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -590,182 +508,70 @@ hr.rule {
   </header>
 
   <main>
-    
+
     <!-- PAGE INTRO -->
     <section class="section section--tight">
-      <div class="glow glow--gold" style="top: 10%; left: 10%;" aria-hidden="true"></div>
+      <div class="glow glow--gold" style="top: 10%; left: 15%;" aria-hidden="true"></div>
       <div class="wrap">
         <div class="section-head section-head--center reveal">
-          <span class="eyebrow">Confidential Offerings</span>
-          <h1>Sessions designed for <em>depth</em>, not volume.</h1>
-          <p>Every journey requires a distinct approach. Venicit limits availability to ensure each private protocol receives the unhurried, rigorous attention required for true clarity.</p>
+          <span class="eyebrow">About Esdras</span>
+          <h1>Guidance begins with <em>understanding.</em></h1>
+          <p>Every session is intended to help reveal perspectives that emotion, fear, or uncertainty often conceal.</p>
         </div>
       </div>
     </section>
 
-    <!-- SESSIONS LISTING -->
-    <section class="section" style="padding-top: 0;">
-      <div class="glow glow--sage" style="bottom: 20%; right: -5%;" aria-hidden="true"></div>
-      
-      <div class="wrap sessions-layout">
-        
-        <!-- FEATURED SESSION -->
-        <article class="featured-session reveal">
-          <div class="session-header">
-            <span class="eyebrow">The Signature Protocol</span>
-            <h3>60 Minute Private Support Session</h3>
-            <p class="session-desc" style="margin-top: var(--space-2); font-size: 1.05rem;">Our paramount offering. An intensive, deeply personal exploration of your current path. Receive unfiltered insights, energetic recalibration, and profound strategic guidance tailored exclusively to your unique signature.</p>
-            <p class="session-suited">Best suited for: Complex crossroads, urgent life transitions, or situations requiring layered analysis.</p>
+    <!-- PHILOSOPHY / SPLIT -->
+    <section class="section">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-figure reveal">
+            <!-- Utilizing the canonical hero image to maintain atmospheric consistency -->
+            <img src="hero.webp" alt="Atmospheric candle arrangement representing clarity and reflection." width="1086" height="1448" loading="lazy">
           </div>
-          
-          <div style="display: flex; flex-direction: column;">
-            <ul class="session-details">
-              <li><span class="label">Duration</span> <span>60 Minutes</span></li>
-              <li><span class="label">Delivery</span> <span>Direct Phone or Secure Live Chat</span></li>
-              <li><span class="label">Availability</span> <span>Worldwide / Same Day (if open)</span></li>
-              <li><span class="label">Confidentiality</span> <span>Absolute</span></li>
-            </ul>
-            <div class="session-footer" style="border-top: none; padding-top: 0;">
-              <span class="session-price">$300</span>
-              <a href="booking.html" class="btn btn-primary">Reserve Session</a>
-            </div>
+          <div class="reveal">
+            <span class="eyebrow">My Philosophy</span>
+            <p class="pull-quote">Every individual already carries the answers they seek.</p>
+            <hr class="rule" style="margin-block: var(--space-4);">
+            <p style="color: var(--ivory-500); max-width: 52ch;">My role is not to make decisions for you, but to help uncover overlooked patterns, challenge assumptions, and restore clarity through intuitive guidance and structured reflection.</p>
           </div>
-        </article>
-
-        <!-- PREMIUM GRID -->
-        <div class="sessions-grid">
-          
-          <!-- Card 1 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Focused Insight</span>
-              <h3>Psychic Empath Reading</h3>
-              <p class="session-desc">A highly concentrated energetic scan directed entirely at a single, pressing inquiry. We focus intently on piercing the immediate veil.</p>
-              <p class="session-suited">Best suited for: Immediate clarity on a specific, singular crossroad or decision.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Scope</span> <span>1 Dedicated Question</span></li>
-              <li><span class="label">Delivery</span> <span>Private Audio or Text</span></li>
-              <li><span class="label">Turnaround</span> <span>24-48 Hours</span></li>
-              <li><span class="label">Method</span> <span>Unfiltered energetic read</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price">$65</span>
-              <a href="booking.html" class="btn btn-ghost">Select</a>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Expanded Insight</span>
-              <h3>In-Depth Reading</h3>
-              <p class="session-desc">A comprehensive evaluation. We analyze the energetic dynamics surrounding multiple distinct areas of your life to reveal hidden connections.</p>
-              <p class="session-suited">Best suited for: Interconnected issues spanning career, relationships, and personal growth.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Scope</span> <span>Up to 3 Questions</span></li>
-              <li><span class="label">Delivery</span> <span>Detailed Audio Recording</span></li>
-              <li><span class="label">Turnaround</span> <span>48 Hours</span></li>
-              <li><span class="label">Method</span> <span>Full aura & energy mapping</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price">$145</span>
-              <a href="booking.html" class="btn btn-ghost">Select</a>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Foresight</span>
-              <h3>Future Prediction</h3>
-              <p class="session-desc">Glimpse the trajectory of your current timelines. We analyze the probability currents surrounding your life to prepare you for what lies ahead.</p>
-              <p class="session-suited">Best suited for: Strategic long-term planning and identifying upcoming obstacles.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Outlook</span> <span>3, 6, or 12 Months</span></li>
-              <li><span class="label">Delivery</span> <span>Written Dossier</span></li>
-              <li><span class="label">Focus</span> <span>Timeline analysis</span></li>
-              <li><span class="label">Preparation</span> <span>Included shielding advice</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price">$200</span>
-              <a href="booking.html" class="btn btn-ghost">Select</a>
-            </div>
-          </article>
-
-          <!-- Card 4 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Archetypal</span>
-              <h3>Tarot Reading</h3>
-              <p class="session-desc">Utilizing esoteric symbolism and ancient archetypes to decode the subconscious forces and external pressures driving your current reality.</p>
-              <p class="session-suited">Best suited for: Visual thinkers requiring a structured, symbolic breakdown of their situation.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Format</span> <span>Custom Spread</span></li>
-              <li><span class="label">Delivery</span> <span>High-Res Images & Audio</span></li>
-              <li><span class="label">Style</span> <span>Intuitive & Traditional</span></li>
-              <li><span class="label">Focus</span> <span>Subconscious alignment</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price">$120</span>
-              <a href="booking.html" class="btn btn-ghost">Select</a>
-            </div>
-          </article>
-
-          <!-- Card 5 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Restoration</span>
-              <h3>Curse Removal</h3>
-              <p class="session-desc">A rigorous energetic cleansing protocol. We identify spiritual blockages, external attachments, or malicious intent, and dissolve them.</p>
-              <p class="session-suited">Best suited for: Persistent negative cycles, heavy energetic stagnation, or suspected external interference.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Process</span> <span>Multi-day protocol</span></li>
-              <li><span class="label">Includes</span> <span>Auric sweep & severing</span></li>
-              <li><span class="label">Protection</span> <span>Shielding installation</span></li>
-              <li><span class="label">Requirement</span> <span>Prior consultation needed</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price">$450</span>
-              <a href="contact.html" class="btn btn-ghost">Inquire</a>
-            </div>
-          </article>
-
-          <!-- Card 6 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Bespoke</span>
-              <h3>Custom Guidance</h3>
-              <p class="session-desc">A uniquely tailored intervention for complex, multi-layered situations that require a combination of divination, spiritual intervention, and mundane strategy.</p>
-              <p class="session-suited">Best suited for: Unique circumstances that do not fit standard protocols.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Scope</span> <span>Fully Customized</span></li>
-              <li><span class="label">Support</span> <span>Ongoing options available</span></li>
-              <li><span class="label">Availability</span> <span>Strictly Limited</span></li>
-              <li><span class="label">Process</span> <span>Application Required</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price" style="font-size: 1.4rem;">Variable</span>
-              <a href="contact.html" class="btn btn-ghost">Apply</a>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
 
-    <!-- BREATHER SECTION -->
+    <!-- EXPERIENCE & PILLARS -->
     <section class="section section--tight">
       <div class="wrap">
-        <div class="breather-section reveal">
-          <p class="pull-quote">True guidance is never automated. It requires a human presence, a quiet space, and the willingness to look at what is actually there.</p>
-          <hr class="rule" style="margin-block: var(--space-4); max-width: 200px; margin-inline: auto;">
-          <p style="color: var(--ivory-500); font-size: 1.05rem;">Every session at Venicit is personally conducted. There are no templates, no algorithmic responses, and no outsourced readings. When you book a session, you are securing dedicated, private time with an expert focused entirely on you.</p>
+        <div class="offerings-grid">
+          <article class="offer-card reveal">
+            <svg class="glyph" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="14" r="7" stroke="currentColor" stroke-width="1.3"/><path d="M7 34C7 26.8 12.8 22 20 22C27.2 22 33 26.8 33 34" stroke="currentColor" stroke-width="1.3"/></svg>
+            <h3>Experience</h3>
+            <p>More than four decades of intuitive practice and thousands of conversations have shaped an approach focused on insight rather than prediction alone.</p>
+          </article>
+          
+          <article class="offer-card reveal">
+            <svg class="glyph" viewBox="0 0 40 40" fill="none"><path d="M12 4L18 15L36 17L22 25L26 38L12 31L-2 38L2 25L-12 17L6 15L12 4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" transform="scale(0.8) translate(10, 5)"/></svg>
+            <h3>Certified Social Coach</h3>
+            <p>Sessions combine practical coaching principles with intuitive observation, balancing grounded advice with reflective guidance.</p>
+          </article>
+          
+          <article class="offer-card reveal">
+            <svg class="glyph" viewBox="0 0 40 40" fill="none"><rect x="8" y="18" width="24" height="16" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M14 18V12a6 6 0 0 1 12 0v6" stroke="currentColor" stroke-width="1.3"/></svg>
+            <h3>Confidential</h3>
+            <p>Every conversation remains private. Clients are encouraged to speak openly without judgement in a respectful, strictly secure environment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE DIFFERENCE -->
+    <section class="section">
+      <div class="glow glow--sage" style="bottom: 0; left: -10%;" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head section-head--center reveal" style="max-width: 800px;">
+          <span class="eyebrow">What Makes Venicit Different</span>
+          <h2>Meaningful conversation over scripted readings.</h2>
+          <p>Venicit is built around direct, one-to-one connection. The objective is to leave each session with greater clarity, practical direction, and a deeper understanding of your exact circumstances.</p>
         </div>
       </div>
     </section>
@@ -774,10 +580,10 @@ hr.rule {
     <section class="cta-band">
       <div class="glow glow--gold" style="top: -100px; left: 40%;" aria-hidden="true"></div>
       <div class="wrap">
-        <span class="eyebrow" style="justify-content:center;">Next Steps</span>
-        <h2>Not sure which protocol fits?</h2>
-        <p>If you require assistance determining which session will best serve your current situation, reach out.</p>
-        <a href="contact.html" class="btn btn-primary">Request Guidance</a>
+        <span class="eyebrow" style="justify-content:center;">Begin Your Journey</span>
+        <h2>Ready to explore your situation?</h2>
+        <p>If you feel ready to move forward with honesty and clarity, the next step is a private session.</p>
+        <a href="booking.html" class="btn btn-primary">Request a Session</a>
       </div>
     </section>
 
@@ -824,7 +630,7 @@ hr.rule {
 
   <script>
 // Venicit — site behavior
-// Mobile nav toggle and scroll-triggered reveals perfectly inherited from index.html
+// Inherited directly from index.html
 
 (function () {
   "use strict";
@@ -838,7 +644,6 @@ hr.rule {
       var isOpen = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
       
-      // Basic visual toggle for mobile menu display
       if (isOpen) {
         nav.style.display = "flex";
         nav.style.flexDirection = "column";
@@ -846,12 +651,20 @@ hr.rule {
         nav.style.top = "84px";
         nav.style.left = "0";
         nav.style.width = "100%";
-        nav.style.background = "rgba(21, 12, 18, 0.95)";
+        nav.style.background = "rgba(21, 12, 18, 0.98)";
         nav.style.padding = "2rem";
         nav.style.borderBottom = "1px solid var(--line-hair)";
       } else {
-        nav.style.display = "none";
+        nav.style.display = "";
       }
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("is-open");
+        nav.style.display = "";
+        toggle.setAttribute("aria-expanded", "false");
+      });
     });
   }
 
