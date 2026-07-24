@@ -612,13 +612,21 @@ hr.rule {
 
   <script>
 // Venicit — Private Reading Request Portal
-// Access-gate + form-reveal behavior. The password check below is a
-// placeholder (verifyAccess) — it is NOT secure as written and is meant
-// to be swapped for a real call to a Cloudflare Worker once that's built.
-// Do not treat this as the final security mechanism.
+// Talks to a Cloudflare Worker for access-code verification and for
+// permanently invalidating a code once the assessment is submitted.
+//
+// Session behavior: once unlocked, a signed session token is cached in
+// sessionStorage (survives reloads within the same tab/browser session,
+// clears when the browser session ends). The code itself is only ever
+// burned server-side, on final submit — a cleared session or a fresh
+// browser does not un-burn a used code.
 
 (function () {
   "use strict";
+
+  // Update this to your deployed Worker route.
+  var WORKER_BASE = "https://venicit-access.ucefbari.workers.dev";
+  var SESSION_KEY = "venicit_reading_session";
 
   /* Mobile nav toggle */
   var toggle = document.querySelector(".nav-toggle");
@@ -645,11 +653,54 @@ hr.rule {
   var gateSubmit = document.getElementById("gate-submit");
   var requestPanel = document.getElementById("request-panel");
 
-  // PLACEHOLDER ONLY — replace with a real fetch() to a Cloudflare Worker
-  // endpoint (e.g. /api/verify-access) that checks the code server-side
-  // and never ships the real secret to the browser.
+  function saveSession(code, token, expiresAt) {
+    try {
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify({ code: code, token: token, expiresAt: expiresAt }));
+    } catch (e) { /* storage unavailable — session just won't persist across reloads */ }
+  }
+
+  function loadSession() {
+    try {
+      var raw = sessionStorage.getItem(SESSION_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed.expiresAt || Date.now() > parsed.expiresAt) {
+        sessionStorage.removeItem(SESSION_KEY);
+        return null;
+      }
+      return parsed;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function clearSession() {
+    try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
+  }
+
+  function revealForm() {
+    gateEl.classList.add("is-hidden");
+    requestPanel.classList.remove("is-hidden");
+    requestPanel.classList.add("fade-enter");
+    requestPanel.setAttribute("tabindex", "-1");
+    requestPanel.focus();
+  }
+
   function verifyAccess(code) {
-    return Promise.resolve(false); // stubbed until the Worker is wired up
+    return fetch(WORKER_BASE + "/api/verify-access", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code: code }),
+    })
+      .then(function (res) { return res.json(); })
+      .catch(function () { return { ok: false, error: "network" }; });
+  }
+
+  // On load: if a valid cached session exists, skip straight to the form
+  // so a reload mid-assessment doesn't force re-entering the code.
+  var cached = loadSession();
+  if (cached) {
+    revealForm();
   }
 
   if (gateForm) {
@@ -667,18 +718,17 @@ hr.rule {
       gateSubmit.disabled = true;
       gateSubmit.textContent = "Checking…";
 
-      verifyAccess(code).then(function (ok) {
+      verifyAccess(code).then(function (result) {
         gateSubmit.disabled = false;
         gateSubmit.textContent = "Unlock My Reading";
 
-        if (ok) {
-          gateEl.classList.add("is-hidden");
-          requestPanel.classList.remove("is-hidden");
-          requestPanel.classList.add("fade-enter");
-          requestPanel.setAttribute("tabindex", "-1");
-          requestPanel.focus();
+        if (result.ok) {
+          saveSession(code, result.token, result.expiresAt);
+          revealForm();
+        } else if (result.error === "network") {
+          gateError.textContent = "We couldn't reach the server. Please check your connection and try again.";
         } else {
-          gateError.textContent = "That code doesn't match. Please check your purchase confirmation and try again.";
+          gateError.textContent = "That code doesn't match or has already been used. Please check your purchase confirmation, or reach out to us.";
         }
       });
     });
@@ -692,19 +742,57 @@ hr.rule {
   if (requestForm) {
     requestForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      // Submission destination (e.g. email API via Worker) to be wired up
-      // in a later step. For now this just confirms the intent to the user.
+
+      var session = loadSession();
+      if (!session) {
+        formStatus.setAttribute("data-state", "error");
+        formStatus.textContent = "Your session has expired. Please re-enter your access code.";
+        return;
+      }
+
       formSubmit.disabled = true;
       formSubmit.textContent = "Sending…";
       formStatus.removeAttribute("data-state");
       formStatus.textContent = "";
 
-      setTimeout(function () {
-        formSubmit.disabled = false;
-        formSubmit.textContent = "Send My Request";
-        formStatus.setAttribute("data-state", "success");
-        formStatus.textContent = "Submission handling isn't connected yet.";
-      }, 400);
+      var payload = {
+        code: session.code,
+        token: session.token,
+        fullName: document.getElementById("full-name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        orderRef: document.getElementById("order-ref").value.trim(),
+        mainQuestion: document.getElementById("main-question").value.trim(),
+        additionalContext: document.getElementById("additional-context").value.trim(),
+      };
+
+      fetch(WORKER_BASE + "/api/complete-assessment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (result) {
+          formSubmit.disabled = false;
+
+          if (result.ok) {
+            clearSession();
+            formSubmit.textContent = "Sent";
+            formSubmit.disabled = true;
+            formStatus.setAttribute("data-state", "success");
+            formStatus.textContent = "Your request has been received. We'll be in touch soon.";
+            requestForm.reset();
+          } else {
+            formSubmit.textContent = "Send My Request";
+            formStatus.setAttribute("data-state", "error");
+            formStatus.textContent = "Something went wrong sending your request. Please try again or contact us directly.";
+          }
+        })
+        .catch(function () {
+          formSubmit.disabled = false;
+          formSubmit.textContent = "Send My Request";
+          formStatus.setAttribute("data-state", "error");
+          formStatus.textContent = "We couldn't reach the server. Please check your connection and try again.";
+        });
     });
   }
 })();
