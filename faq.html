@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venicit — Premium Guidance Sessions & Services</title>
+  <meta name="description" content="Explore Venicit's luxury private guidance sessions, tarot, empathic readings, and specialized spiritual services. Completely confidential and strictly by appointment.">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="https://venicit.com/sessions.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Venicit — Premium Guidance Sessions">
+  <meta property="og:description" content="Private, one-to-one sessions for clarity, direction, and profound spiritual insight.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://venicit.com/sessions.html">
+  <meta property="og:image" content="https://venicit.com/hero.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+/* ==========================================================================
+   Venicit — Design System (Sessions Page)
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --ink-black: #150c12;
+  --plum-950: #1a0f17;
+  --plum-900: #241420;
+  --plum-800: #2c1826;
+  --plum-700: #3a2032;
+  --gold-400: #d9bd83;
+  --gold-500: #c9a962;
+  --gold-600: #a8863f;
+  --sage-500: #4c6152;
+  --sage-400: #63795f;
+  --ivory-100: #f7f2ea;
+  --ivory-300: #ede6dc;
+  --ivory-500: #cabfae;
+  --line-hair: rgba(201, 169, 98, 0.22);
+  --shadow-deep: rgba(8, 4, 6, 0.55);
+  --shadow-glow: rgba(201, 169, 98, 0.15);
+
+  /* Type */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Rhythm */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 2.75rem;
+  --space-5: 4.5rem;
+  --space-6: 7rem;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --max-width: 1240px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--plum-950);
+  color: var(--ivory-300);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ivory-100);
+  line-height: 1.15;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+::selection { background: var(--gold-600); color: var(--plum-950); }
+
+:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Layout primitives ---------- */
+.wrap {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.wrap-narrow {
+  max-width: 980px;
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.section {
+  padding-block: var(--space-6);
+}
+
+/* Eyebrow motif */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--gold-600);
+}
+
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+  max-width: 640px;
+}
+
+.section-head--center h1, 
+.section-head--center h2 {
+  margin-top: var(--space-2);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  letter-spacing: -0.01em;
+}
+
+.section-head--center h1 em,
+.section-head--center h2 em {
+  font-style: italic;
+  color: var(--gold-400);
+}
+
+.section-head--center p { 
+  margin-top: var(--space-3);
+  color: var(--ivory-500);
+  font-size: 1.15rem;
+  margin-inline: auto;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.85em 1.9em;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease-out), background 0.35s var(--ease-out), border-color 0.35s var(--ease-out), color 0.35s var(--ease-out);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
+  color: var(--plum-950);
+}
+.btn-primary:hover { transform: translateY(-2px); filter: brightness(1.08); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--gold-600);
+  color: var(--gold-400);
+}
+.btn-ghost:hover { 
+  background: rgba(201, 169, 98, 0.08);
+  transform: translateY(-2px); 
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(21, 12, 18, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-hair);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: var(--ivory-100);
+}
+.brand span { color: var(--gold-500); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ivory-500);
+  position: relative;
+  padding-block: 4px;
+  transition: color 0.3s var(--ease-out);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: var(--gold-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] { color: var(--ivory-100); }
+.nav-links a:hover::after,
+.nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line-hair);
+  border-radius: var(--radius-md);
+  width: 42px;
+  height: 42px;
+  color: var(--ivory-100);
+  cursor: pointer;
+}
+
+/* Ambient glow */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.55;
+  animation: flicker 7s ease-in-out infinite;
+  z-index: 0;
+}
+
+.glow--gold {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(201, 169, 98, 0.35), transparent 70%);
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.45; transform: scale(1) translateX(-50%); }
+  50% { opacity: 0.65; transform: scale(1.06) translateX(-47%); }
+}
+
+/* ---------- Page Intro ---------- */
+.page-intro {
+  position: relative;
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-3);
+  overflow: hidden;
+}
+
+.page-intro .wrap { position: relative; z-index: 1; }
+
+/* ---------- Featured Session ---------- */
+.featured-section {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-6);
+}
+
+.featured-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(58, 32, 50, 0.4) 0%, rgba(21, 12, 18, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 169, 98, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -20px var(--shadow-deep), inset 0 0 40px rgba(201, 169, 98, 0.05);
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out), border-color 0.5s var(--ease-out);
+}
+
+.featured-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 169, 98, 0.5);
+  box-shadow: 0 50px 90px -20px var(--shadow-deep), 0 0 60px rgba(201, 169, 98, 0.1), inset 0 0 60px rgba(201, 169, 98, 0.08);
+}
+
+.featured-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-black);
+  background: linear-gradient(90deg, var(--gold-400), var(--gold-600));
+  padding: 0.4em 1.2em;
+  border-radius: 50px;
+  margin-bottom: var(--space-4);
+  font-weight: 600;
+}
+
+.featured-card h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  color: var(--ivory-100);
+  margin-bottom: var(--space-3);
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.featured-card .desc {
+  font-size: 1.15rem;
+  color: var(--ivory-300);
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+}
+
+.featured-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0 auto var(--space-5);
+  max-width: 800px;
+}
+
+.featured-features li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.95rem;
+  color: var(--ivory-500);
+}
+
+.featured-features li::before {
+  content: "✦";
+  color: var(--gold-500);
+  font-size: 0.8rem;
+}
+
+.featured-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.featured-price {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--gold-400);
+}
+
+.featured-card .btn-primary {
+  font-size: 1rem;
+  padding: 1em 2.5em;
+}
+
+/* ---------- Premium Services Stack ---------- */
+.services-section {
+  padding-top: 0;
+}
+
+.service-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.premium-card {
+  display: flex;
+  background: linear-gradient(135deg, rgba(44, 24, 38, 0.4) 0%, rgba(26, 15, 23, 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 169, 98, 0.12);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: all 0.5s var(--ease-out);
+}
+
+.premium-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201, 169, 98, 0.35);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+  background: linear-gradient(135deg, rgba(58, 32, 50, 0.5) 0%, rgba(26, 15, 23, 0.9) 100%);
+}
+
+.card-main {
+  flex: 1;
+  padding-right: var(--space-4);
+}
+
+.card-side {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--line-hair);
+  padding-left: var(--space-4);
+}
+
+.card-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--gold-500);
+  margin-bottom: var(--space-2);
+}
+
+.card-category {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin-bottom: var(--space-1);
+}
+
+.card-main h3 {
+  font-size: 1.8rem;
+  margin-bottom: var(--space-2);
+}
+
+.card-main .desc {
+  color: var(--ivory-300);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-3);
+  max-width: 45ch;
+}
+
+.card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.card-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  font-size: 0.9rem;
+  color: var(--ivory-500);
+}
+
+.card-features li::before {
+  content: "✦";
+  color: var(--gold-600);
+  font-size: 0.75rem;
+  margin-top: 0.2em;
+}
+
+.card-price {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--gold-400);
+  margin-bottom: var(--space-3);
+}
+
+/* ---------- Bottom CTA ---------- */
+.cta-band {
+  position: relative;
+  overflow: hidden;
+  background: var(--plum-800);
+  border-top: 1px solid var(--line-hair);
+  border-bottom: 1px solid var(--line-hair);
+  text-align: center;
+}
+
+.cta-band .wrap {
+  padding-block: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-band h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+.cta-band p {
+  margin-top: var(--space-2);
+  color: var(--ivory-500);
+}
+
+.cta-band .btn { margin-top: var(--space-4); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--ink-black);
+  border-top: 1px solid var(--line-hair);
+  padding-block: var(--space-5) var(--space-4);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.footer-brand p {
+  margin-top: var(--space-2);
+  color: var(--ivory-500);
+  font-size: 0.9rem;
+  max-width: 32ch;
+}
+
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: var(--space-2);
+}
+
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.footer-col a {
+  color: var(--ivory-500);
+  font-size: 0.9rem;
+  transition: color 0.3s var(--ease-out);
+}
+
+.footer-col a:hover { color: var(--gold-400); }
+
+.footer-bottom {
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line-hair);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--ivory-500);
+}
+
+/* ---------- Reveal-on-scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .premium-card { flex-direction: column; }
+  .card-main { padding-right: 0; padding-bottom: var(--space-4); }
+  .card-side { width: 100%; border-left: none; border-top: 1px solid var(--line-hair); padding-left: 0; padding-top: var(--space-4); flex-direction: row; align-items: center; justify-content: space-between; }
+  .card-side .card-price { margin-bottom: 0; }
+}
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .footer-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+  .card-side { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+  .featured-card { padding: var(--space-5) var(--space-3); }
+  .premium-card { padding: var(--space-4) var(--space-3); }
+}
+
+@media (max-width: 480px) {
+  .site-header .wrap { height: 68px; }
+  .page-intro { padding-block: var(--space-5); }
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="brand">Venic<span>it</span></a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="sessions.html" aria-current="page">Sessions</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 4H17M1 9H17M1 14H17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE INTRO -->
+    <section class="page-intro">
+      <div class="glow glow--gold" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head--center reveal">
+          <span class="eyebrow">Private Guidance</span>
+          <h1>Sessions &amp; <em>Services</em></h1>
+          <p>Explore our curated selection of private sessions and specialized spiritual guidance. Each experience is strictly confidential, held to the highest standards, and tailored to provide profound clarity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED SESSION -->
+    <section class="featured-section">
+      <div class="wrap">
+        <div class="featured-card reveal">
+          <div class="featured-badge">★★★★★ Most Requested</div>
+          <h2>60 Minute Private Support Session</h2>
+          <p class="desc">An intensive, one-on-one session dedicated entirely to your most pressing questions. Immediate, focused, and profoundly clarifying—designed to cut through noise and deliver actionable insight.</p>
+          
+          <ul class="featured-features">
+            <li>Phone</li>
+            <li>Live Chat</li>
+            <li>Worldwide</li>
+            <li>Same Day Availability</li>
+            <li>Completely Confidential</li>
+          </ul>
+
+          <div class="featured-action">
+            <div class="featured-price">$250</div>
+            <a href="booking.html" class="btn btn-primary">Reserve Session</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM CARDS -->
+    <section class="services-section section">
+      <div class="wrap-narrow">
+        <div class="service-stack">
+
+          <!-- Card 1 -->
+          <article class="premium-card reveal">
+            <div class="card-main">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <div class="card-category">Focused Insight</div>
+              <h3>Psychic Empath Reading (1 Question)</h3>
+              <p class="desc">Focus deeply on a single area of concern. Receive clear, channeled empathic guidance tailored to an isolated situation that requires immediate illumination.</p>
+              <ul class="card-features">
+                <li>Direct, channeled answers</li>
+                <li>Energetic tuning to your specific situation</li>
+                <li>Delivered digitally within 24 hours</li>
+              </ul>
+            </div>
+            <div class="card-side">
+              <div class="card-price">$85</div>
+              <a href="booking.html" class="btn btn-ghost">Request</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="premium-card reveal">
+            <div class="card-main">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20"></path>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <div class="card-category">Deep Insight</div>
+              <h3>Psychic Empath Reading (3 Questions)</h3>
+              <p class="desc">A comprehensive reading covering multiple aspects of your life. Ideal for complex crossroads and intertwined situations where one answer simply isn't enough.</p>
+              <ul class="card-features">
+                <li>In-depth analysis across three distinct domains</li>
+                <li>Pathway clarity for intertwined decisions</li>
+                <li>Delivered digitally within 48 hours</li>
+              </ul>
+            </div>
+            <div class="card-side">
+              <div class="card-price">$195</div>
+              <a href="booking.html" class="btn btn-ghost">Request</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="premium-card reveal">
+            <div class="card-main">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <div class="card-category">Foresight</div>
+              <h3>Future Prediction</h3>
+              <p class="desc">Look ahead to understand the trajectories forming around you. Navigate upcoming shifts, personal seasons, and external changes with foresight and preparation.</p>
+              <ul class="card-features">
+                <li>Detailed 6–12 month outlook</li>
+                <li>Identification of key milestones and turning points</li>
+                <li>Strategic preparedness for incoming energies</li>
+              </ul>
+            </div>
+            <div class="card-side">
+              <div class="card-price">$220</div>
+              <a href="booking.html" class="btn btn-ghost">Request</a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="premium-card reveal">
+            <div class="card-main">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+              </svg>
+              <div class="card-category">Divination</div>
+              <h3>Tarot Reading</h3>
+              <p class="desc">A classical spread utilizing ancient archetypes to mirror your current reality, reveal hidden influences, and map out the highest potential of your current path.</p>
+              <ul class="card-features">
+                <li>Custom spread tailored to your intention</li>
+                <li>High-resolution visual map of your cards provided</li>
+                <li>Profound archetypal and symbolic guidance</li>
+              </ul>
+            </div>
+            <div class="card-side">
+              <div class="card-price">$150</div>
+              <a href="booking.html" class="btn btn-ghost">Request</a>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="premium-card reveal">
+            <div class="card-main">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <div class="card-category">Energetic Cleansing</div>
+              <h3>Hex / Curse Removal</h3>
+              <p class="desc">A profound spiritual clearing designed to break negative attachments, dissolve persistent blockages, and meticulously restore your natural energetic sovereignty.</p>
+              <ul class="card-features">
+                <li>Deep ritualistic cleansing</li>
+                <li>Auric sealing and boundary reinforcement</li>
+                <li>Ongoing protection protocols provided</li>
+              </ul>
+            </div>
+            <div class="card-side">
+              <div class="card-price">$450</div>
+              <a href="booking.html" class="btn btn-ghost">Request</a>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="premium-card reveal">
+            <div class="card-main">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+              <div class="card-category">Bespoke</div>
+              <h3>Custom Guidance</h3>
+              <p class="desc">A fluid, adaptive session for highly unique spiritual or personal needs that do not fit standard formats. We build the architecture of the session together.</p>
+              <ul class="card-features">
+                <li>Entirely personalized framework</li>
+                <li>Multi-disciplinary spiritual approach</li>
+                <li>Unrestricted scope to address layered concerns</li>
+              </ul>
+            </div>
+            <div class="card-side">
+              <div class="card-price">Enquire</div>
+              <a href="contact.html" class="btn btn-ghost">Contact Us</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+      <div class="wrap">
+        <span class="eyebrow" style="justify-content:center;">Guidance</span>
+        <h2>Not Sure Which Session Fits You?</h2>
+        <p>If you feel overwhelmed by choice or unsure where to begin, reach out to us directly. We will help match you with the right support.</p>
+        <a href="contact.html" class="btn btn-primary">Request Guidance</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">Venic<span>it</span></a>
+          <p>Private guidance sessions for clarity, direction, and honest reflection. By appointment only.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="sessions.html">Sessions</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sessions</h4>
+          <ul>
+            <li><a href="sessions.html">Private Sessions</a></li>
+            <li><a href="sessions.html">Strategic Reflection</a></li>
+            <li><a href="sessions.html">Ongoing Guidance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@venicit.com">hello@venicit.com</a></li>
+            <li><a href="contact.html">Enquiry Form</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Venicit. All rights reserved.</span>
+        <span>Certified Social Coaching &middot; Private &amp; Confidential</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+// Venicit — site behavior
+(function () {
+  "use strict";
+
+  /* Mobile nav toggle */
+  var toggle = document.querySelector(".nav-toggle");
+  var nav = document.querySelector(".nav-links");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var isOpen = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  /* Scroll reveal */
+  var revealEls = document.querySelectorAll(".reveal");
+
+  if (revealEls.length && "IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    revealEls.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
+})();
+  </script>
+</body>
+</html>
