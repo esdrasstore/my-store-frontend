@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venicit — Contact & Enquiries</title>
+  <meta name="description" content="Get in touch with Venicit to request a private guidance session, ask a question, or discuss custom spiritual support.">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="https://venicit.com/contact.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Venicit — Contact & Enquiries">
+  <meta property="og:description" content="Reach out to request a private guidance session or discuss custom spiritual support.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://venicit.com/contact.html">
+  <meta property="og:image" content="https://venicit.com/hero.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+/* ==========================================================================
+   Venicit — Design System (Contact Page)
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --ink-black: #150c12;
+  --plum-950: #1a0f17;
+  --plum-900: #241420;
+  --plum-800: #2c1826;
+  --plum-700: #3a2032;
+  --gold-400: #d9bd83;
+  --gold-500: #c9a962;
+  --gold-600: #a8863f;
+  --sage-500: #4c6152;
+  --sage-400: #63795f;
+  --ivory-100: #f7f2ea;
+  --ivory-300: #ede6dc;
+  --ivory-500: #cabfae;
+  --line-hair: rgba(201, 169, 98, 0.22);
+  --shadow-deep: rgba(8, 4, 6, 0.55);
+
+  /* Type */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Rhythm */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 2.75rem;
+  --space-5: 4.5rem;
+  --space-6: 7rem;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --max-width: 1240px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--plum-950);
+  color: var(--ivory-300);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ivory-100);
+  line-height: 1.15;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+::selection { background: var(--gold-600); color: var(--plum-950); }
+
+/* ---------- Layout primitives ---------- */
+.wrap {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.section {
+  padding-block: var(--space-6);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--gold-600);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.85em 1.9em;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease-out), filter 0.35s var(--ease-out);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
+  color: var(--plum-950);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(21, 12, 18, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-hair);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: var(--ivory-100);
+}
+
+.brand span { color: var(--gold-500); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ivory-500);
+  position: relative;
+  padding-block: 4px;
+  transition: color 0.3s var(--ease-out);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1px;
+  background: var(--gold-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] { color: var(--ivory-100); }
+.nav-links a:hover::after,
+.nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line-hair);
+  border-radius: var(--radius-md);
+  width: 42px;
+  height: 42px;
+  color: var(--ivory-100);
+  cursor: pointer;
+}
+
+/* Ambient glow */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.55;
+  animation: flicker 7s ease-in-out infinite;
+  z-index: 0;
+}
+
+.glow--gold {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(201, 169, 98, 0.35), transparent 70%);
+  top: -100px; right: -100px;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.06); }
+}
+
+/* ---------- Page Intro ---------- */
+.page-intro {
+  position: relative;
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-4);
+  overflow: hidden;
+}
+
+.page-intro .wrap { position: relative; z-index: 1; }
+
+.page-intro h1 {
+  font-size: clamp(2.6rem, 5vw, 4.1rem);
+  letter-spacing: -0.01em;
+  margin-top: var(--space-2);
+  max-width: 800px;
+}
+
+.page-intro h1 em {
+  font-style: italic;
+  color: var(--gold-400);
+}
+
+.page-intro p {
+  font-size: 1.15rem;
+  color: var(--ivory-500);
+  max-width: 52ch;
+  margin-top: var(--space-3);
+}
+
+/* ---------- Contact Section ---------- */
+.contact-section {
+  padding-top: 0;
+  padding-bottom: var(--space-6);
+  position: relative;
+  z-index: 2;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* Contact Info Side */
+.contact-info {
+  background: linear-gradient(135deg, rgba(44, 24, 38, 0.4) 0%, rgba(26, 15, 23, 0.8) 100%);
+  border: 1px solid var(--line-hair);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.info-block {
+  margin-bottom: var(--space-4);
+}
+
+.info-block:last-child {
+  margin-bottom: 0;
+}
+
+.info-block h3 {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  margin-bottom: var(--space-2);
+}
+
+.info-block p, .info-block a {
+  font-size: 1.05rem;
+  color: var(--ivory-100);
+}
+
+.info-block a {
+  transition: color 0.3s var(--ease-out);
+}
+
+.info-block a:hover {
+  color: var(--gold-400);
+}
+
+/* Contact Form Side */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ivory-300);
+}
+
+.form-control {
+  width: 100%;
+  background: rgba(8, 4, 6, 0.4);
+  border: 1px solid var(--line-hair);
+  border-radius: var(--radius-sm);
+  padding: 1em 1.2em;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ivory-100);
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.form-control::placeholder {
+  color: rgba(202, 191, 174, 0.3);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 1px var(--gold-500), inset 0 0 15px rgba(201, 169, 98, 0.05);
+  background: rgba(8, 4, 6, 0.6);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 150px;
+}
+
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d9bd83' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--ink-black);
+  border-top: 1px solid var(--line-hair);
+  padding-block: var(--space-5) var(--space-4);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.footer-brand p {
+  margin-top: var(--space-2);
+  color: var(--ivory-500);
+  font-size: 0.9rem;
+  max-width: 32ch;
+}
+
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: var(--space-2);
+}
+
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.footer-col a {
+  color: var(--ivory-500);
+  font-size: 0.9rem;
+  transition: color 0.3s var(--ease-out);
+}
+
+.footer-col a:hover { color: var(--gold-400); }
+
+.footer-bottom {
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line-hair);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--ivory-500);
+}
+
+/* ---------- Reveal-on-scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .footer-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+}
+
+@media (max-width: 480px) {
+  .site-header .wrap { height: 68px; }
+  .page-intro { padding-block: var(--space-5); }
+}
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="brand">Venic<span>it</span></a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="sessions.html">Sessions</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 4H17M1 9H17M1 14H17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE INTRO -->
+    <section class="page-intro">
+      <div class="glow glow--gold" aria-hidden="true"></div>
+      <div class="wrap reveal">
+        <span class="eyebrow">Initiate Contact</span>
+        <h1>Begin the <em>Conversation</em></h1>
+        <p>Reach out to schedule a private session, request custom spiritual architecture, or submit a general inquiry. Discretion is absolute. We aim to respond within 24 hours.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT GRID -->
+    <section class="contact-section">
+      <div class="wrap">
+        <div class="contact-grid">
+          
+          <!-- Info Column -->
+          <div class="contact-info reveal">
+            <div class="info-block">
+              <h3>Direct Email</h3>
+              <a href="mailto:hello@venicit.com">hello@venicit.com</a>
+            </div>
+            <div class="info-block">
+              <h3>Availability</h3>
+              <p>Monday — Friday<br>9:00 AM — 6:00 PM (EST)</p>
+            </div>
+            <div class="info-block">
+              <h3>Location</h3>
+              <p>Digital & Worldwide<br>All sessions conducted remotely.</p>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="contact-form-wrap reveal">
+            <form id="contactForm" class="contact-form">
+              
+              <div class="form-group">
+                <label for="name" class="form-label">Preferred Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="How should we address you?" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="For correspondence" required>
+              </div>
+
+              <div class="form-group">
+                <label for="interest" class="form-label">Area of Interest</label>
+                <select id="interest" name="interest" class="form-control" required>
+                  <option value="" disabled selected>Select an option...</option>
+                  <option value="booking">Session Booking Inquiry</option>
+                  <option value="custom">Custom Guidance Request</option>
+                  <option value="general">General Question</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-control" placeholder="Briefly outline your situation or request..." required></textarea>
+              </div>
+
+              <div>
+                <button type="submit" class="btn btn-primary">Send Request</button>
+              </div>
+              
+              <p id="formStatus" style="display:none; color: var(--gold-400); margin-top: 1rem; font-size: 0.9rem;"></p>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">Venic<span>it</span></a>
+          <p>Private guidance sessions for clarity, direction, and honest reflection. By appointment only.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="sessions.html">Sessions</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sessions</h4>
+          <ul>
+            <li><a href="sessions.html">Private Sessions</a></li>
+            <li><a href="sessions.html">Strategic Reflection</a></li>
+            <li><a href="sessions.html">Ongoing Guidance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@venicit.com">hello@venicit.com</a></li>
+            <li><a href="contact.html">Enquiry Form</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Venicit. All rights reserved.</span>
+        <span>Certified Social Coaching &middot; Private &amp; Confidential</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+// Venicit — site behavior
+(function () {
+  "use strict";
+
+  /* Mobile nav toggle */
+  var toggle = document.querySelector(".nav-toggle");
+  var nav = document.querySelector(".nav-links");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var isOpen = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  /* Form handling simulation */
+  var form = document.getElementById("contactForm");
+  var status = document.getElementById("formStatus");
+
+  if(form) {
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.textContent = "Sending...";
+      btn.style.opacity = "0.7";
+      
+      setTimeout(function() {
+        form.reset();
+        btn.textContent = "Send Request";
+        btn.style.opacity = "1";
+        status.style.display = "block";
+        status.textContent = "Your request has been received. We will be in touch shortly.";
+      }, 1200);
+    });
+  }
+
+  /* Scroll reveal */
+  var revealEls = document.querySelectorAll(".reveal");
+
+  if (revealEls.length && "IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    revealEls.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
+})();
+  </script>
+</body>
+</html>
