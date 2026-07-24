@@ -272,6 +272,34 @@ hr.rule {
   cursor: pointer;
 }
 
+/* Begin Reading — premium nav CTA, echoes the "Most Requested" gold badge motif */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.55em 1.3em;
+  background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
+  color: var(--plum-950) !important;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px -6px rgba(201, 169, 98, 0.55);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), filter 0.35s var(--ease-out);
+}
+
+.nav-cta svg { flex-shrink: 0; }
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 22px -6px rgba(201, 169, 98, 0.7);
+}
+
+.nav-cta::after { display: none; content: none; } /* suppress the underline hover-line used by regular nav links */
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -611,6 +639,8 @@ hr.rule {
   .offerings-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-3); }
   .trust-strip .wrap { justify-content: flex-start; gap: var(--space-3); }
+  .nav-links.is-open { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); position: absolute; top: 100%; left: 0; right: 0; background: var(--plum-950); border-bottom: 1px solid var(--line-hair); padding: var(--space-3); }
+  .nav-links .nav-cta { align-self: flex-start; }
 }
 
 @media (max-width: 480px) {
@@ -632,6 +662,7 @@ hr.rule {
           <li><a href="sessions.html">Sessions</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="request-reading/" class="nav-cta"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M9 1L11 6.5L17 7L12.5 11L14 17L9 13.5L4 17L5.5 11L1 7L7 6.5L9 1Z" fill="currentColor"/></svg>Begin Reading</a></li>
         </ul>
       </nav>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
