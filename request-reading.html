@@ -17,7 +17,6 @@
   <style>
 /* ==========================================================================
    Venicit — Design System
-   (mirrored from the main site so this page shares one visual identity)
    ========================================================================== */
 
 :root {
@@ -102,7 +101,6 @@ p { margin: 0; }
   padding-inline: var(--space-3);
 }
 
-/* Kraft-label eyebrow */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -233,7 +231,6 @@ hr.rule {
   cursor: pointer;
 }
 
-/* Begin Reading — premium nav CTA */
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -259,7 +256,6 @@ hr.rule {
   box-shadow: 0 8px 22px -6px rgba(201, 169, 98, 0.7);
 }
 
-/* Ambient candlelight glow */
 .glow {
   position: absolute;
   border-radius: 50%;
@@ -287,7 +283,6 @@ hr.rule {
   50% { opacity: 0.65; transform: scale(1.06); }
 }
 
-/* ---------- Portal shell ---------- */
 .portal {
   position: relative;
   overflow: hidden;
@@ -304,7 +299,6 @@ hr.rule {
   width: 100%;
 }
 
-/* ---------- Access gate ---------- */
 .gate {
   max-width: 460px;
   margin-inline: auto;
@@ -410,7 +404,6 @@ hr.rule {
   font-style: italic;
 }
 
-/* ---------- Reading request form ---------- */
 .request-panel {
   max-width: 780px;
   margin-inline: auto;
@@ -470,7 +463,6 @@ hr.rule {
 .request-form .field + .field-row,
 .request-form .field-row + .field { margin-top: var(--space-3); }
 
-/* --- Interactive Scheduling Cards --- */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -489,7 +481,6 @@ hr.rule {
   margin-top: var(--space-2);
 }
 
-/* Specific sizing for the time slot grid */
 .grid-slots {
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }
@@ -568,7 +559,6 @@ hr.rule {
 
 .form-status[data-state="success"] { color: var(--gold-400); }
 
-/* ---------- Reveal transitions ---------- */
 .is-hidden { display: none !important; }
 
 .fade-enter {
@@ -580,7 +570,6 @@ hr.rule {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Footer ---------- */
 .site-footer {
   background: var(--ink-black);
   border-top: 1px solid var(--line-hair);
@@ -599,7 +588,6 @@ hr.rule {
 
 .site-footer a:hover { color: var(--gold-400); }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 720px) {
   .nav-links { display: none; }
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
@@ -616,7 +604,6 @@ hr.rule {
   .portal .wrap { padding-block: var(--space-5); }
   .gate-card, .request-form { padding: var(--space-3); }
 }
-
   </style>
 </head>
 <body>
@@ -666,7 +653,7 @@ hr.rule {
           <p class="gate-note">Didn't receive a code, or having trouble? <a href="contact.html" style="color: var(--gold-400); text-decoration: underline;">Reach out to us directly</a>.</p>
         </div>
 
-        <!-- FULL ASSESSMENT FORM (revealed after unlock) -->
+        <!-- FULL ASSESSMENT FORM -->
         <div class="request-panel is-hidden" id="request-panel">
           
           <form class="request-form" id="request-form">
@@ -848,7 +835,6 @@ hr.rule {
                 <p class="subhead">These are the threads that help me find you clearly. No need to explain—just let them settle as they are.</p>
               </div>
 
-              <!-- Personal Threads -->
               <p class="eyebrow" style="margin-bottom: var(--space-2);">Personal Threads</p>
               
               <div class="field-row">
@@ -889,7 +875,6 @@ hr.rule {
                 <input type="text" id="ethnicity" name="ethnicity" required>
               </div>
 
-              <!-- Life's Landscape -->
               <p class="eyebrow" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">Life's Landscape</p>
               
               <div class="field-row">
@@ -908,7 +893,6 @@ hr.rule {
                 <input type="text" id="living-situation" name="living-situation" placeholder="Alone, Family, Shared..." required>
               </div>
 
-              <!-- The Material World -->
               <p class="eyebrow" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">The Material World</p>
 
               <div class="field">
@@ -990,7 +974,6 @@ hr.rule {
                 <textarea id="q4-trust" name="q4-trust" required></textarea>
               </div>
 
-              <!-- Inner Compass & Support -->
               <p class="eyebrow" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">Inner Compass &amp; Support</p>
 
               <div class="field">
@@ -1016,7 +999,6 @@ hr.rule {
                 <textarea id="q4-last-thing" name="q4-last-thing" required></textarea>
               </div>
               
-              <!-- Direct Contact Information Inputs -->
               <p class="eyebrow" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">Contact Details</p>
               <div class="field-row">
                 <div class="field">
@@ -1030,7 +1012,7 @@ hr.rule {
               </div>
             </div>
 
-            <!-- SECTION FIVE & SCHEDULING -->
+            <!-- SECTION FIVE & SCHEDULING WITH DAY CHOICE -->
             <div class="form-section">
               <div class="section-head">
                 <span class="eyebrow">Section Five</span>
@@ -1039,8 +1021,46 @@ hr.rule {
                 <p class="subhead" style="margin-top: var(--space-2);">Nothing you have written here will be rushed. Before we speak... I will spend time with your words. Your conversation begins long before the phone rings.</p>
               </div>
 
+              <!-- NEW: Day Selection Step -->
               <div class="field" style="margin-top: var(--space-4);">
-                <label>Choose the moment that feels prepared for you.</label>
+                <label>Step 1: Choose Your Preferred Day</label>
+                <span class="field-desc">Select the day of the week for your conversation.</span>
+                
+                <div class="selection-grid" style="grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));">
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-day" value="Monday" class="sr-only" required>
+                    <div class="selection-card"><span class="primary-text">Monday</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-day" value="Tuesday" class="sr-only" required>
+                    <div class="selection-card"><span class="primary-text">Tuesday</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-day" value="Wednesday" class="sr-only" required>
+                    <div class="selection-card"><span class="primary-text">Wednesday</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-day" value="Thursday" class="sr-only" required>
+                    <div class="selection-card"><span class="primary-text">Thursday</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-day" value="Friday" class="sr-only" required>
+                    <div class="selection-card"><span class="primary-text">Friday</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-day" value="Saturday" class="sr-only" required>
+                    <div class="selection-card"><span class="primary-text">Saturday</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-day" value="Sunday" class="sr-only" required>
+                    <div class="selection-card"><span class="primary-text">Sunday</span></div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Time Slot Selection Step -->
+              <div class="field" style="margin-top: var(--space-4);">
+                <label>Step 2: Choose the Moment That Feels Prepared For You</label>
                 <span class="field-desc">Spirit has already arranged the meeting. Now allow time to do the same.</span>
                 
                 <div class="selection-grid grid-slots">
@@ -1159,27 +1179,19 @@ hr.rule {
                 <div class="selection-grid" style="grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));">
                   <label class="selection-label">
                     <input type="radio" name="contact-method" value="Phone" class="sr-only" required>
-                    <div class="selection-card">
-                      <span class="primary-text">Phone</span>
-                    </div>
+                    <div class="selection-card"><span class="primary-text">Phone</span></div>
                   </label>
                   <label class="selection-label">
                     <input type="radio" name="contact-method" value="WhatsApp" class="sr-only" required>
-                    <div class="selection-card">
-                      <span class="primary-text">WhatsApp</span>
-                    </div>
+                    <div class="selection-card"><span class="primary-text">WhatsApp</span></div>
                   </label>
                   <label class="selection-label">
                     <input type="radio" name="contact-method" value="Telegram" class="sr-only" required>
-                    <div class="selection-card">
-                      <span class="primary-text">Telegram</span>
-                    </div>
+                    <div class="selection-card"><span class="primary-text">Telegram</span></div>
                   </label>
                   <label class="selection-label">
                     <input type="radio" name="contact-method" value="Email" class="sr-only" required>
-                    <div class="selection-card">
-                      <span class="primary-text">Email</span>
-                    </div>
+                    <div class="selection-card"><span class="primary-text">Email</span></div>
                   </label>
                 </div>
               </div>
@@ -1204,24 +1216,12 @@ hr.rule {
   </footer>
 
   <script>
-// Venicit — Private Reading Request Portal
-// Talks to a Cloudflare Worker for access-code verification and for
-// permanently invalidating a code once the assessment is submitted.
-//
-// Session behavior: once unlocked, a signed session token is cached in
-// sessionStorage (survives reloads within the same tab/browser session,
-// clears when the browser session ends). The code itself is only ever
-// burned server-side, on final submit — a cleared session or a fresh
-// browser does not un-burn a used code.
-
 (function () {
   "use strict";
 
-  // Update this to your deployed Worker route.
   var WORKER_BASE = "https://venicit-access.ucefbari.workers.dev";
   var SESSION_KEY = "venicit_reading_session";
 
-  /* Mobile nav toggle */
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".nav-links");
 
@@ -1239,7 +1239,6 @@ hr.rule {
     });
   }
 
-  /* ---------- Access gate ---------- */
   var gateForm = document.getElementById("gate-form");
   var gateEl = document.getElementById("gate");
   var gateError = document.getElementById("gate-error");
@@ -1249,7 +1248,7 @@ hr.rule {
   function saveSession(code, token, expiresAt) {
     try {
       sessionStorage.setItem(SESSION_KEY, JSON.stringify({ code: code, token: token, expiresAt: expiresAt }));
-    } catch (e) { /* storage unavailable — session just won't persist across reloads */ }
+    } catch (e) {}
   }
 
   function loadSession() {
@@ -1325,7 +1324,6 @@ hr.rule {
     });
   }
 
-  /* ---------- Reading request form ---------- */
   var requestForm = document.getElementById("request-form");
   var formStatus = document.getElementById("form-status");
   var formSubmit = document.getElementById("form-submit");
@@ -1346,7 +1344,6 @@ hr.rule {
       formStatus.removeAttribute("data-state");
       formStatus.textContent = "";
 
-      // Dynamically extract all textareas, inputs, and selected radios via FormData
       var payload = {
         code: session.code,
         token: session.token
