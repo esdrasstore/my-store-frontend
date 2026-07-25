@@ -356,7 +356,6 @@ hr.rule {
   margin-bottom: 0.6em;
 }
 
-/* Added field-desc for descriptive subtext under labels */
 .field-desc {
   display: block;
   font-size: 0.85rem;
@@ -413,7 +412,7 @@ hr.rule {
 
 /* ---------- Reading request form ---------- */
 .request-panel {
-  max-width: 780px; /* Slightly wider for the full assessment readability */
+  max-width: 780px;
   margin-inline: auto;
 }
 
@@ -490,6 +489,11 @@ hr.rule {
   margin-top: var(--space-2);
 }
 
+/* Specific sizing for the time slot grid */
+.grid-slots {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
 .selection-label {
   cursor: pointer;
   display: block;
@@ -535,12 +539,13 @@ hr.rule {
 .selection-card .secondary-text {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  opacity: 0.8;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  line-height: 1.4;
 }
 
 .selection-label input[type="radio"]:checked ~ .selection-card .secondary-text {
-  opacity: 1;
+  opacity: 0.9;
 }
 
 .request-form .form-foot {
@@ -906,25 +911,70 @@ hr.rule {
               <!-- The Material World -->
               <p class="eyebrow" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">The Material World</p>
 
-              <div class="field-row">
-                <div class="field">
-                  <label for="profession">Current Profession / Occupation</label>
-                  <input type="text" id="profession" name="profession" required>
-                </div>
-                <div class="field">
-                  <label for="income">Approximate Monthly Income Range</label>
-                  <input type="text" id="income" name="income" required>
+              <div class="field">
+                <label for="profession">Current Profession / Occupation</label>
+                <input type="text" id="profession" name="profession" required>
+              </div>
+
+              <div class="field" style="margin-top: var(--space-3);">
+                <label>We're always working to make Venicit easier to pay for and access.</label>
+                <span class="field-desc">This next question is optional and has no effect on your reading — it helps facilitate the use of the platform. What payment method would you prefer to see supported here?</span>
+                <div class="selection-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));">
+                  <label class="selection-label">
+                    <input type="radio" name="preferred-payment" value="Card" class="sr-only">
+                    <div class="selection-card"><span class="primary-text">Card</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="preferred-payment" value="PayPal" class="sr-only">
+                    <div class="selection-card"><span class="primary-text">PayPal</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="preferred-payment" value="Cryptocurrency" class="sr-only">
+                    <div class="selection-card"><span class="primary-text">Cryptocurrency</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="preferred-payment" value="Other" class="sr-only">
+                    <div class="selection-card"><span class="primary-text">Other</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="preferred-payment" value="No preference" class="sr-only">
+                    <div class="selection-card"><span class="primary-text">No preference</span></div>
+                  </label>
                 </div>
               </div>
 
-              <div class="field-row">
+              <div class="field" style="margin-top: var(--space-3);">
+                <label>Have you used cryptocurrency before?</label>
+                <div class="selection-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                  <label class="selection-label">
+                    <input type="radio" name="used-crypto" value="Yes, regularly" class="sr-only">
+                    <div class="selection-card"><span class="primary-text">Yes, regularly</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="used-crypto" value="Yes, occasionally" class="sr-only">
+                    <div class="selection-card"><span class="primary-text">Yes, occasionally</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="used-crypto" value="No, but curious" class="sr-only">
+                    <div class="selection-card"><span class="primary-text">No, but curious</span></div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="used-crypto" value="Not interested" class="sr-only">
+                    <div class="selection-card"><span class="primary-text">Not interested</span></div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="field-row" style="margin-top: var(--space-3);">
                 <div class="field">
-                  <label for="digital-payments">Are you comfortable with digital payments or online purchases?</label>
-                  <input type="text" id="digital-payments" name="digital-payments" required>
+                  <label for="typical-currency">Venicit has been serving people worldwide.</label>
+                  <span class="field-desc">So I can offer fair pricing wherever you're located, this next question helps me understand cost of living where you are — it's optional, has no effect on your reading, and stays completely private. What currency do you typically use?</span>
+                  <input type="text" id="typical-currency" name="typical-currency" placeholder="e.g. USD, EUR, GBP...">
                 </div>
                 <div class="field">
-                  <label for="crypto">Have you ever used cryptocurrency or considered investing?</label>
-                  <input type="text" id="crypto" name="crypto" required>
+                  <label for="grocery-cost">Roughly, what would you consider an average grocery run to cost you, in that currency?</label>
+                  <span class="field-desc">Feel free to give an exact number or just an approximate range — whatever's easier.</span>
+                  <input type="text" id="grocery-cost" name="grocery-cost" placeholder="Your estimated cost">
                 </div>
               </div>
 
@@ -991,49 +1041,112 @@ hr.rule {
 
               <div class="field" style="margin-top: var(--space-4);">
                 <label>Choose the moment that feels prepared for you.</label>
-                <span class="field-desc">Spirit has already arranged the meeting. Now allow time to do the same. (All times in your local timezone)</span>
+                <span class="field-desc">Spirit has already arranged the meeting. Now allow time to do the same.</span>
                 
-                <div class="selection-grid">
+                <div class="selection-grid grid-slots">
                   <label class="selection-label">
-                    <input type="radio" name="appointment-selection" value="Monday 10:00 AM" class="sr-only" required>
+                    <input type="radio" name="appointment-selection" value="3:00 PM EST" class="sr-only" required>
                     <div class="selection-card">
-                      <span class="primary-text">Monday</span>
-                      <span class="secondary-text">10:00 AM</span>
+                      <span class="primary-text">3:00 PM EST</span>
+                      <span class="secondary-text">2:00 PM CST<br>1:00 PM MST<br>12:00 PM PST</span>
                     </div>
                   </label>
                   <label class="selection-label">
-                    <input type="radio" name="appointment-selection" value="Monday 2:00 PM" class="sr-only" required>
+                    <input type="radio" name="appointment-selection" value="3:40 PM EST" class="sr-only" required>
                     <div class="selection-card">
-                      <span class="primary-text">Monday</span>
-                      <span class="secondary-text">2:00 PM</span>
+                      <span class="primary-text">3:40 PM EST</span>
+                      <span class="secondary-text">2:40 PM CST<br>1:40 PM MST<br>12:40 PM PST</span>
                     </div>
                   </label>
                   <label class="selection-label">
-                    <input type="radio" name="appointment-selection" value="Tuesday 11:30 AM" class="sr-only" required>
+                    <input type="radio" name="appointment-selection" value="4:20 PM EST" class="sr-only" required>
                     <div class="selection-card">
-                      <span class="primary-text">Tuesday</span>
-                      <span class="secondary-text">11:30 AM</span>
+                      <span class="primary-text">4:20 PM EST</span>
+                      <span class="secondary-text">3:20 PM CST<br>2:20 PM MST<br>1:20 PM PST</span>
                     </div>
                   </label>
                   <label class="selection-label">
-                    <input type="radio" name="appointment-selection" value="Wednesday 5:00 PM" class="sr-only" required>
+                    <input type="radio" name="appointment-selection" value="5:00 PM EST" class="sr-only" required>
                     <div class="selection-card">
-                      <span class="primary-text">Wednesday</span>
-                      <span class="secondary-text">5:00 PM</span>
+                      <span class="primary-text">5:00 PM EST</span>
+                      <span class="secondary-text">4:00 PM CST<br>3:00 PM MST<br>2:00 PM PST</span>
                     </div>
                   </label>
                   <label class="selection-label">
-                    <input type="radio" name="appointment-selection" value="Thursday 7:00 PM" class="sr-only" required>
+                    <input type="radio" name="appointment-selection" value="5:40 PM EST" class="sr-only" required>
                     <div class="selection-card">
-                      <span class="primary-text">Thursday</span>
-                      <span class="secondary-text">7:00 PM</span>
+                      <span class="primary-text">5:40 PM EST</span>
+                      <span class="secondary-text">4:40 PM CST<br>3:40 PM MST<br>2:40 PM PST</span>
                     </div>
                   </label>
                   <label class="selection-label">
-                    <input type="radio" name="appointment-selection" value="Friday 3:00 PM" class="sr-only" required>
+                    <input type="radio" name="appointment-selection" value="6:20 PM EST" class="sr-only" required>
                     <div class="selection-card">
-                      <span class="primary-text">Friday</span>
-                      <span class="secondary-text">3:00 PM</span>
+                      <span class="primary-text">6:20 PM EST</span>
+                      <span class="secondary-text">5:20 PM CST<br>4:20 PM MST<br>3:20 PM PST</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="7:00 PM EST" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">7:00 PM EST</span>
+                      <span class="secondary-text">6:00 PM CST<br>5:00 PM MST<br>4:00 PM PST</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="7:40 PM EST" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">7:40 PM EST</span>
+                      <span class="secondary-text">6:40 PM CST<br>5:40 PM MST<br>4:40 PM PST</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="8:20 PM EST" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">8:20 PM EST</span>
+                      <span class="secondary-text">7:20 PM CST<br>6:20 PM MST<br>5:20 PM PST</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="9:00 PM EST" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">9:00 PM EST</span>
+                      <span class="secondary-text">8:00 PM CST<br>7:00 PM MST<br>6:00 PM PST</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="9:40 PM EST" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">9:40 PM EST</span>
+                      <span class="secondary-text">8:40 PM CST<br>7:40 PM MST<br>6:40 PM PST</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="10:20 PM EST" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">10:20 PM EST</span>
+                      <span class="secondary-text">9:20 PM CST<br>8:20 PM MST<br>7:20 PM PST</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="11:00 PM EST" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">11:00 PM EST</span>
+                      <span class="secondary-text">10:00 PM CST<br>9:00 PM MST<br>8:00 PM PST</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="11:40 PM EST" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">11:40 PM EST</span>
+                      <span class="secondary-text">10:40 PM CST<br>9:40 PM MST<br>8:40 PM PST</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="12:20 AM EST" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">12:20 AM EST</span>
+                      <span class="secondary-text">11:20 PM CST<br>10:20 PM MST<br>9:20 PM PST</span>
                     </div>
                   </label>
                 </div>
