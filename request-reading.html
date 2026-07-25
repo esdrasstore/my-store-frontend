@@ -233,7 +233,7 @@ hr.rule {
   cursor: pointer;
 }
 
-/* Begin Reading — premium nav CTA, echoes the "Most Requested" gold badge motif */
+/* Begin Reading — premium nav CTA */
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -356,6 +356,20 @@ hr.rule {
   margin-bottom: 0.6em;
 }
 
+/* Added field-desc for descriptive subtext under labels */
+.field-desc {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ivory-500);
+  margin-top: -0.2em;
+  margin-bottom: 0.8em;
+  font-style: italic;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
 .field input,
 .field textarea {
   width: 100%;
@@ -399,7 +413,7 @@ hr.rule {
 
 /* ---------- Reading request form ---------- */
 .request-panel {
-  max-width: 680px;
+  max-width: 780px; /* Slightly wider for the full assessment readability */
   margin-inline: auto;
 }
 
@@ -413,11 +427,15 @@ hr.rule {
 .request-panel h1 {
   font-size: clamp(1.9rem, 3.4vw, 2.5rem);
 }
+.request-panel h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  margin-bottom: var(--space-2);
+}
 
 .request-panel .subhead {
   margin-top: var(--space-2);
   color: var(--ivory-500);
-  max-width: 48ch;
+  max-width: 58ch;
   margin-inline: auto;
 }
 
@@ -428,6 +446,18 @@ hr.rule {
   border-radius: var(--radius-md);
   padding: var(--space-4);
   box-shadow: 0 40px 80px -30px var(--shadow-deep);
+}
+
+.form-section {
+  padding-top: var(--space-4);
+  margin-top: var(--space-5);
+  border-top: 1px solid var(--line-hair);
+}
+
+.form-section:first-child {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: none;
 }
 
 .request-form .field-row {
@@ -441,13 +471,87 @@ hr.rule {
 .request-form .field + .field-row,
 .request-form .field-row + .field { margin-top: var(--space-3); }
 
+/* --- Interactive Scheduling Cards --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.selection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.selection-label {
+  cursor: pointer;
+  display: block;
+}
+
+.selection-card {
+  background: var(--plum-950);
+  border: 1px solid var(--line-hair);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-2);
+  text-align: center;
+  transition: all 0.3s var(--ease-out);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.selection-label:hover .selection-card {
+  border-color: var(--gold-500);
+}
+
+.selection-label input[type="radio"]:focus-visible ~ .selection-card {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+}
+
+.selection-label input[type="radio"]:checked ~ .selection-card {
+  background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
+  border-color: transparent;
+  color: var(--plum-950);
+  box-shadow: 0 6px 18px -6px rgba(201, 169, 98, 0.4);
+}
+
+.selection-card .primary-text {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.2em;
+}
+
+.selection-card .secondary-text {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.selection-label input[type="radio"]:checked ~ .selection-card .secondary-text {
+  opacity: 1;
+}
+
 .request-form .form-foot {
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
   flex-wrap: wrap;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line-hair);
 }
 
 .request-form .form-foot .btn-primary { width: auto; padding-inline: 2.6em; }
@@ -557,44 +661,420 @@ hr.rule {
           <p class="gate-note">Didn't receive a code, or having trouble? <a href="contact.html" style="color: var(--gold-400); text-decoration: underline;">Reach out to us directly</a>.</p>
         </div>
 
-        <!-- READING REQUEST FORM (revealed after unlock) -->
+        <!-- FULL ASSESSMENT FORM (revealed after unlock) -->
         <div class="request-panel is-hidden" id="request-panel">
-          <div class="section-head">
-            <span class="eyebrow">Welcome, Client</span>
-            <h1>Let's begin your reading.</h1>
-            <p class="subhead">Share a little about your situation below. The more honestly you write, the more precisely we can meet you where you are.</p>
-          </div>
-
+          
           <form class="request-form" id="request-form">
-            <div class="field-row">
-              <div class="field">
-                <label for="full-name">Full Name</label>
-                <input type="text" id="full-name" name="full-name" placeholder="Your name" required>
+            
+            <!-- SECTION ONE -->
+            <div class="form-section">
+              <div class="section-head">
+                <span class="eyebrow">Section One</span>
+                <h2>Reflective Opening</h2>
+                <p class="subhead">Please take a moment to sit quietly with yourself before you begin. What follows is a mirror to your own soul. There is no right or wrong way to answer. Only what is true for you in this moment.</p>
               </div>
+
               <div class="field">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                <label for="q1-weighing">What is weighing on your soul right now?</label>
+                <span class="field-desc">Let the words come as they wish. Speak of what you have never dared speak aloud. Let your soul answer fully. Spirit does not require polish only honesty.</span>
+                <textarea id="q1-weighing" name="q1-weighing" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q1-how-long">How long has this been with you?</label>
+                <span class="field-desc">A whisper... or a storm?</span>
+                <textarea id="q1-how-long" name="q1-how-long" style="min-height: 80px;" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q1-tomorrow">If you could wake up tomorrow and one thing in your life had shifted, what would that one thing be?</label>
+                <textarea id="q1-tomorrow" name="q1-tomorrow" required></textarea>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="q1-tried">What have you already tried?</label>
+                  <textarea id="q1-tried" name="q1-tried" required></textarea>
+                </div>
+                <div class="field">
+                  <label for="q1-avoided">And what have you avoided trying?</label>
+                  <textarea id="q1-avoided" name="q1-avoided" required></textarea>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="q1-path-forward">When you imagine a path forward, what do you sense stands between you and it?</label>
+                <span class="field-desc">Not obstacles others have placed. Not what you think you should say. What, deep down, feels like the wall. The thing you do not name.</span>
+                <textarea id="q1-path-forward" name="q1-path-forward" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q1-unspoken">Is there anything you have not spoken aloud to anyone yet that feels connected to this?</label>
+                <span class="field-desc">We all have something that sits at the edge of our voice. This is a place where it can be held without judgment. The spiritual celestials have already brought me to your path. Let the words flow naturally.</span>
+                <textarea id="q1-unspoken" name="q1-unspoken" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q1-silent">If every voice around you became silent... what truth about your life would still remain?</label>
+                <textarea id="q1-silent" name="q1-silent" required></textarea>
               </div>
             </div>
 
-            <div class="field">
-              <label for="order-ref">Order / Reference Number</label>
-              <input type="text" id="order-ref" name="order-ref" placeholder="From your purchase confirmation" required>
+            <!-- SECTION TWO -->
+            <div class="form-section">
+              <div class="section-head">
+                <span class="eyebrow">Section Two</span>
+                <h2>What Seeks to Reach You</h2>
+                <p class="subhead">Once we understand where we stand, we may begin asking what seeks to reach us. Only then does the meaning of fortune become clear.</p>
+              </div>
+
+              <div class="field">
+                <label for="q2-true-for-you">Sometimes life changes because we seek it. Sometimes... it quietly finds us first.</label>
+                <span class="field-desc">Looking back upon your own life... which has been true for you?</span>
+                <textarea id="q2-true-for-you" name="q2-true-for-you" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-fortune-look-like">What would fortune look like if it arrived for you now?</label>
+                <span class="field-desc">Not a fantasy. Not what you think you should want. But if something shifted—quietly, unmistakably—what form would it take?</span>
+                <textarea id="q2-fortune-look-like" name="q2-fortune-look-like" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-timing">Do you believe timing has purpose?</label>
+                <span class="field-desc">Some spend their entire lives believing everything is coincidence. Others quietly notice that certain people, certain places and certain moments seem to arrive precisely when they are most needed. There is no right answer. Only the answer that already lives within you.</span>
+                <textarea id="q2-timing" name="q2-timing" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-opportunities">Looking back... How many opportunities... did you only recognize... after they had already passed?</label>
+                <textarea id="q2-opportunities" name="q2-opportunities" style="min-height: 80px;" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-fortune-word">When you hear the word "fortune," what rises first in your mind?</label>
+                <textarea id="q2-fortune-word" name="q2-fortune-word" style="min-height: 80px;" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-fortune-arrived">Has fortune ever arrived at your door unexpectedly?</label>
+                <span class="field-desc">Not just money—but opportunity, timing, a door that opened when you least expected it. What did that moment feel like? Did you walk through?</span>
+                <textarea id="q2-fortune-arrived" name="q2-fortune-arrived" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-reassure">If fortune were to require something of you—an opening, a willingness, a step you have not taken before—what would you need to feel certain it was meant for you?</label>
+                <span class="field-desc">Not a demand. Just a reflection. What would reassure you? What would tip the balance?</span>
+                <textarea id="q2-reassure" name="q2-reassure" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-unseen">What is your relationship with the unseen—with the things you cannot touch but can feel?</label>
+                <span class="field-desc">Some have always felt accompanied. Others only begin to notice when life becomes quiet enough to hear.</span>
+                <textarea id="q2-unseen" name="q2-unseen" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-reaching">Have you ever sensed something greater than yourself... reaching toward you?</label>
+                <span class="field-desc">...and you are not sure if you are ready?</span>
+                <textarea id="q2-reaching" name="q2-reaching" style="min-height: 80px;" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-meet-it">If that reaching became clearer... if it arrived with a voice, a timing, a request... would you meet it?</label>
+                <span class="field-desc">or would you wait for certainty you have never been given?</span>
+                <textarea id="q2-meet-it" name="q2-meet-it" style="min-height: 80px;" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q2-walk-through">When the universe presents a door... do you walk through?</label>
+                <span class="field-desc">or do you wait for someone to tell you it was real?</span>
+                <textarea id="q2-walk-through" name="q2-walk-through" style="min-height: 80px;" required></textarea>
+              </div>
             </div>
 
-            <div class="field">
-              <label for="main-question">Your Main Question or Situation</label>
-              <textarea id="main-question" name="main-question" placeholder="What is the situation you'd like guidance on?" required></textarea>
+            <!-- SECTION THREE -->
+            <div class="form-section">
+              <div class="section-head">
+                <span class="eyebrow">Section Three</span>
+                <h2>Who You Are</h2>
+                <p class="subhead">Before we speak of what is coming, let us sit with who you are in this moment. Not who you were. Not who you hope to be. Just what is present now.</p>
+              </div>
+
+              <div class="field">
+                <label for="q3-see-first">When you look at yourself, what do you see first?</label>
+                <span class="field-desc">Not what others see. Not what you have been told. But what rises without effort—the image, the feeling, the knowing of who you are.</span>
+                <textarea id="q3-see-first" name="q3-see-first" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q3-changed-direction">Reflecting through the mirror... which moments quietly changed the direction of your life?</label>
+                <textarea id="q3-changed-direction" name="q3-changed-direction" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q3-value-most">What do you value most in yourself?</label>
+                <span class="field-desc">The thing you protect. The part you are proud of. The quality that, if taken away, would leave you hollow.</span>
+                <textarea id="q3-value-most" name="q3-value-most" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q3-risk">What has life taught you about risk?</label>
+                <textarea id="q3-risk" name="q3-risk" style="min-height: 80px;" required></textarea>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="q3-taken">What have you taken that you should not have?</label>
+                  <textarea id="q3-taken" name="q3-taken" required></textarea>
+                </div>
+                <div class="field">
+                  <label for="q3-avoided">What have you avoided that you wish you had stepped into?</label>
+                  <textarea id="q3-avoided" name="q3-avoided" required></textarea>
+                </div>
+              </div>
             </div>
 
-            <div class="field">
-              <label for="additional-context">Additional Context <span style="text-transform:none; letter-spacing:normal; color: var(--ivory-500);">(optional)</span></label>
-              <textarea id="additional-context" name="additional-context" placeholder="Anything else that would help us understand your situation."></textarea>
+            <!-- SECTION FOUR -->
+            <div class="form-section">
+              <div class="section-head">
+                <span class="eyebrow">Section Four</span>
+                <h2>Your Spiritual Threads to the Physical Realm</h2>
+                <p class="subhead">These are the threads that help me find you clearly. No need to explain—just let them settle as they are.</p>
+              </div>
+
+              <!-- Personal Threads -->
+              <p class="eyebrow" style="margin-bottom: var(--space-2);">Personal Threads</p>
+              
+              <div class="field-row">
+                <div class="field">
+                  <label for="full-name">Full Name</label>
+                  <input type="text" id="full-name" name="full-name" placeholder="Your full name" required>
+                </div>
+                <div class="field">
+                  <label for="dob">Date of Birth</label>
+                  <input type="date" id="dob" name="dob" required>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="age">Age</label>
+                  <input type="number" id="age" name="age" placeholder="Your age" required>
+                </div>
+                <div class="field">
+                  <label for="gender">Gender</label>
+                  <input type="text" id="gender" name="gender" placeholder="Your gender" required>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="location">Your Location</label>
+                  <input type="text" id="location" name="location" placeholder="City, Country" required>
+                </div>
+                <div class="field">
+                  <label for="nationality">Country of Origin / Nationality</label>
+                  <input type="text" id="nationality" name="nationality" required>
+                </div>
+              </div>
+              
+              <div class="field">
+                <label for="ethnicity">Ethnicity / Cultural Background</label>
+                <input type="text" id="ethnicity" name="ethnicity" required>
+              </div>
+
+              <!-- Life's Landscape -->
+              <p class="eyebrow" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">Life's Landscape</p>
+              
+              <div class="field-row">
+                <div class="field">
+                  <label for="relationship-situation">Relationship Situation</label>
+                  <input type="text" id="relationship-situation" name="relationship-situation" required>
+                </div>
+                <div class="field">
+                  <label for="children">Children or Dependents</label>
+                  <input type="text" id="children" name="children" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="living-situation">Living Situation</label>
+                <input type="text" id="living-situation" name="living-situation" placeholder="Alone, Family, Shared..." required>
+              </div>
+
+              <!-- The Material World -->
+              <p class="eyebrow" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">The Material World</p>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="profession">Current Profession / Occupation</label>
+                  <input type="text" id="profession" name="profession" required>
+                </div>
+                <div class="field">
+                  <label for="income">Approximate Monthly Income Range</label>
+                  <input type="text" id="income" name="income" required>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="digital-payments">Are you comfortable with digital payments or online purchases?</label>
+                  <input type="text" id="digital-payments" name="digital-payments" required>
+                </div>
+                <div class="field">
+                  <label for="crypto">Have you ever used cryptocurrency or considered investing?</label>
+                  <input type="text" id="crypto" name="crypto" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="q4-recognize-spirit">If Spirit placed an opportunity before you... one that required a step you had not taken before...</label>
+                <span class="field-desc">would you recognize it as Spirit? or would you call it coincidence and let it pass?</span>
+                <textarea id="q4-recognize-spirit" name="q4-recognize-spirit" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q4-trust">And if that step required trust…</label>
+                <span class="field-desc">not in certainty... but in the quiet threads of Divinity that have guided you until now... would you step forward..or would you hesitate?</span>
+                <textarea id="q4-trust" name="q4-trust" required></textarea>
+              </div>
+
+              <!-- Inner Compass & Support -->
+              <p class="eyebrow" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">Inner Compass &amp; Support</p>
+
+              <div class="field">
+                <label for="q4-compass">How has Spirit spoken to you throughout your life, if at all?</label>
+                <textarea id="q4-compass" name="q4-compass" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q4-helped-see">Has anyone ever helped you see beyond what was immediately visible?</label>
+                <span class="field-desc">If so, what remained with you afterward?</span>
+                <textarea id="q4-helped-see" name="q4-helped-see" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q4-closest">If those closest to you knew you had taken this step today...</label>
+                <span class="field-desc">who would understand? and who would not?</span>
+                <textarea id="q4-closest" name="q4-closest" required></textarea>
+              </div>
+
+              <div class="field">
+                <label for="q4-last-thing">Ask yourself one last thing:</label>
+                <span class="field-desc">If everything you have written here was leading somewhere... would you follow?</span>
+                <textarea id="q4-last-thing" name="q4-last-thing" required></textarea>
+              </div>
+              
+              <!-- Direct Contact Information Inputs -->
+              <p class="eyebrow" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">Contact Details</p>
+              <div class="field-row">
+                <div class="field">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Including country code" required>
+                </div>
+                <div class="field">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECTION FIVE & SCHEDULING -->
+            <div class="form-section">
+              <div class="section-head">
+                <span class="eyebrow">Section Five</span>
+                <h2>Closing &amp; Reaching You</h2>
+                <p class="subhead">Thank you. You have now placed into words what many carry in silence. I will spend time with everything you have shared before we speak. When our conversation begins... we will not be starting from the beginning. We will be continuing a journey that has already begun.</p>
+                <p class="subhead" style="margin-top: var(--space-2);">Nothing you have written here will be rushed. Before we speak... I will spend time with your words. Your conversation begins long before the phone rings.</p>
+              </div>
+
+              <div class="field" style="margin-top: var(--space-4);">
+                <label>Choose the moment that feels prepared for you.</label>
+                <span class="field-desc">Spirit has already arranged the meeting. Now allow time to do the same. (All times in your local timezone)</span>
+                
+                <div class="selection-grid">
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="Monday 10:00 AM" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">Monday</span>
+                      <span class="secondary-text">10:00 AM</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="Monday 2:00 PM" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">Monday</span>
+                      <span class="secondary-text">2:00 PM</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="Tuesday 11:30 AM" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">Tuesday</span>
+                      <span class="secondary-text">11:30 AM</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="Wednesday 5:00 PM" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">Wednesday</span>
+                      <span class="secondary-text">5:00 PM</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="Thursday 7:00 PM" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">Thursday</span>
+                      <span class="secondary-text">7:00 PM</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="appointment-selection" value="Friday 3:00 PM" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">Friday</span>
+                      <span class="secondary-text">3:00 PM</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="field" style="margin-top: var(--space-4);">
+                <label>Preferred Contact Method</label>
+                <span class="field-desc">How shall we reach you when the time arrives?</span>
+                
+                <div class="selection-grid" style="grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));">
+                  <label class="selection-label">
+                    <input type="radio" name="contact-method" value="Phone" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">Phone</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="contact-method" value="WhatsApp" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">WhatsApp</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="contact-method" value="Telegram" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">Telegram</span>
+                    </div>
+                  </label>
+                  <label class="selection-label">
+                    <input type="radio" name="contact-method" value="Email" class="sr-only" required>
+                    <div class="selection-card">
+                      <span class="primary-text">Email</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
             </div>
 
             <div class="form-foot">
-              <span class="form-status" id="form-status"></span>
-              <button type="submit" class="btn btn-primary" id="form-submit">Send My Request</button>
+              <span class="form-status" id="form-status" role="alert" aria-live="polite"></span>
+              <button type="submit" class="btn btn-primary" id="form-submit">Submit My Journey</button>
             </div>
           </form>
         </div>
@@ -696,8 +1176,6 @@ hr.rule {
       .catch(function () { return { ok: false, error: "network" }; });
   }
 
-  // On load: if a valid cached session exists, skip straight to the form
-  // so a reload mid-assessment doesn't force re-entering the code.
   var cached = loadSession();
   if (cached) {
     revealForm();
@@ -755,15 +1233,16 @@ hr.rule {
       formStatus.removeAttribute("data-state");
       formStatus.textContent = "";
 
+      // Dynamically extract all textareas, inputs, and selected radios via FormData
       var payload = {
         code: session.code,
-        token: session.token,
-        fullName: document.getElementById("full-name").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        orderRef: document.getElementById("order-ref").value.trim(),
-        mainQuestion: document.getElementById("main-question").value.trim(),
-        additionalContext: document.getElementById("additional-context").value.trim(),
+        token: session.token
       };
+
+      var formData = new FormData(requestForm);
+      formData.forEach(function (value, key) {
+        payload[key] = value.trim();
+      });
 
       fetch(WORKER_BASE + "/api/complete-assessment", {
         method: "POST",
@@ -779,17 +1258,17 @@ hr.rule {
             formSubmit.textContent = "Sent";
             formSubmit.disabled = true;
             formStatus.setAttribute("data-state", "success");
-            formStatus.textContent = "Your request has been received. We'll be in touch soon.";
+            formStatus.textContent = "Your journey has been received. We'll be in touch soon.";
             requestForm.reset();
           } else {
-            formSubmit.textContent = "Send My Request";
+            formSubmit.textContent = "Submit My Journey";
             formStatus.setAttribute("data-state", "error");
             formStatus.textContent = "Something went wrong sending your request. Please try again or contact us directly.";
           }
         })
         .catch(function () {
           formSubmit.disabled = false;
-          formSubmit.textContent = "Send My Request";
+          formSubmit.textContent = "Submit My Journey";
           formStatus.setAttribute("data-state", "error");
           formStatus.textContent = "We couldn't reach the server. Please check your connection and try again.";
         });
