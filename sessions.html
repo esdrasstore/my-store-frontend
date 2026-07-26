@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sessions — Venicit | Private Guidance Protocols</title>
-  <meta name="description" content="Immersive, high-end private guidance sessions designed for absolute clarity, spiritual alignment, and unfiltered truth.">
+  <title>Sessions — Private Readings Online | Venicit</title>
+  <meta name="description" content="Five private reading formats, one clear path to clarity. Love & relationship, tarot, career, psychic, and future prediction readings — same-day availability.">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="canonical" href="https://venicit.com/sessions.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Venicit — Private Guidance Protocols">
-  <meta property="og:description" content="Immersive, high-end private guidance sessions designed for absolute clarity, spiritual alignment, and unfiltered truth.">
+  <meta property="og:title" content="Sessions — Private Readings Online | Venicit">
+  <meta property="og:description" content="Five private reading formats, one clear path to clarity. Same-day availability, fully confidential.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://venicit.com/sessions.html">
   <meta property="og:image" content="https://venicit.com/hero.webp">
@@ -22,11 +22,10 @@
 
   <style>
 /* ==========================================================================
-   Venicit — Design System (Inherited from index.html)
+   Venicit — Design System (inherited exactly from category pages)
    ========================================================================== */
 
 :root {
-  /* Color */
   --ink-black: #150c12;
   --plum-950: #1a0f17;
   --plum-900: #241420;
@@ -43,11 +42,9 @@
   --line-hair: rgba(201, 169, 98, 0.22);
   --shadow-deep: rgba(8, 4, 6, 0.55);
 
-  /* Type */
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  /* Rhythm */
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.75rem;
@@ -61,7 +58,6 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
@@ -105,21 +101,15 @@ p { margin: 0; }
   border-radius: var(--radius-sm);
 }
 
-/* ---------- Layout primitives ---------- */
 .wrap {
   max-width: var(--max-width);
   margin-inline: auto;
   padding-inline: var(--space-3);
 }
 
-.section {
-  padding-block: var(--space-6);
-  position: relative;
-}
-
+.section { padding-block: var(--space-6); position: relative; }
 .section--tight { padding-block: var(--space-5); }
 
-/* Kraft-label eyebrow */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -139,50 +129,20 @@ p { margin: 0; }
   background: var(--gold-600);
 }
 
-.section-head {
-  max-width: 640px;
-  margin-bottom: var(--space-4);
-}
-
+.section-head { max-width: 640px; margin-bottom: var(--space-4); }
 .section-head h1, .section-head h2 {
   margin-top: var(--space-2);
   font-size: clamp(1.9rem, 3.2vw, 2.6rem);
   letter-spacing: -0.01em;
 }
-
-.section-head h1 {
-  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
-}
-
-.section-head h1 em, .section-head h2 em {
-  font-style: italic;
-  color: var(--gold-400);
-}
-
-.section-head p {
-  margin-top: var(--space-2);
-  color: var(--ivory-500);
-  font-size: 1.15rem;
-  max-width: 52ch;
-}
-
-.section-head--center {
-  margin-inline: auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+.section-head h1 { font-size: clamp(2.6rem, 4.5vw, 3.8rem); }
+.section-head h1 em, .section-head h2 em { font-style: italic; color: var(--gold-400); }
+.section-head p { margin-top: var(--space-2); color: var(--ivory-500); font-size: 1.15rem; max-width: 52ch; }
+.section-head--center { margin-inline: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
 .section-head--center p { margin-inline: auto; }
 
-hr.rule {
-  border: none;
-  border-top: 1px solid var(--line-hair);
-  margin: 0;
-}
+hr.rule { border: none; border-top: 1px solid var(--line-hair); margin: 0; }
 
-/* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -199,18 +159,9 @@ hr.rule {
   cursor: pointer;
   transition: transform 0.35s var(--ease-out), background 0.35s var(--ease-out), border-color 0.35s var(--ease-out), color 0.35s var(--ease-out);
 }
-
-.btn-primary {
-  background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
-  color: var(--plum-950);
-}
+.btn-primary { background: linear-gradient(180deg, var(--gold-400), var(--gold-600)); color: var(--plum-950); }
 .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.06); }
-
-.btn-ghost {
-  background: transparent;
-  border-color: var(--line-hair);
-  color: var(--ivory-100);
-}
+.btn-ghost { background: transparent; border-color: var(--line-hair); color: var(--ivory-100); }
 .btn-ghost:hover { border-color: var(--gold-500); color: var(--gold-400); }
 
 /* ---------- Header ---------- */
@@ -222,32 +173,12 @@ hr.rule {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-hair);
 }
-
-.site-header .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 84px;
-}
-
-.brand {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  letter-spacing: 0.04em;
-  color: var(--ivory-100);
-}
-
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+.brand { font-family: var(--font-display); font-size: 1.35rem; letter-spacing: 0.04em; color: var(--ivory-100); }
 .brand span { color: var(--gold-500); }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
+.nav-links { display: flex; align-items: center; gap: var(--space-4); list-style: none; margin: 0; padding: 0; }
+.nav-links > li { position: relative; }
 .nav-links a {
   font-size: 0.85rem;
   letter-spacing: 0.05em;
@@ -257,8 +188,7 @@ hr.rule {
   padding-block: 4px;
   transition: color 0.3s var(--ease-out);
 }
-
-.nav-links a::after {
+.nav-links a:not(.nav-cta)::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: -2px;
@@ -268,11 +198,47 @@ hr.rule {
   transform-origin: left;
   transition: transform 0.35s var(--ease-out);
 }
+.nav-links a:hover:not(.nav-cta), .nav-links a[aria-current="page"] { color: var(--ivory-100); }
+.nav-links a:hover:not(.nav-cta)::after, .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
 
-.nav-links a:hover,
-.nav-links a[aria-current="page"] { color: var(--ivory-100); }
-.nav-links a:hover::after,
-.nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+/* Sessions dropdown — hover-gap fix applied: no top offset gap, padding pushes content down instead */
+.has-dropdown { display: flex; align-items: center; gap: 0.35em; }
+.dropdown-caret { width: 9px; height: 9px; transition: transform 0.3s var(--ease-out); flex-shrink: 0; }
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 260px;
+  background: var(--plum-900);
+  border: 1px solid var(--line-hair);
+  border-radius: var(--radius-md);
+  box-shadow: 0 30px 60px -20px var(--shadow-deep);
+  padding: 18px var(--space-2) var(--space-2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+.nav-links > li:hover .nav-dropdown,
+.nav-links > li:focus-within .nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-links > li:hover .dropdown-caret,
+.nav-links > li:focus-within .dropdown-caret { transform: rotate(180deg); }
+.nav-dropdown a {
+  display: block;
+  padding: 0.6em 0.8em;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+  color: var(--ivory-300);
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+.nav-dropdown a::after { display: none; }
+.nav-dropdown a:hover { background: var(--plum-800); color: var(--gold-400); }
+.nav-dropdown hr.rule { margin-block: 0.5em; }
 
 .nav-toggle {
   display: none;
@@ -285,6 +251,25 @@ hr.rule {
   cursor: pointer;
 }
 
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.55em 1.3em;
+  background: linear-gradient(180deg, var(--gold-400), var(--gold-600));
+  color: var(--plum-950) !important;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px -6px rgba(201, 169, 98, 0.55);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), filter 0.35s var(--ease-out);
+}
+.nav-cta svg { flex-shrink: 0; }
+.nav-cta:hover { transform: translateY(-1px); filter: brightness(1.05); box-shadow: 0 8px 22px -6px rgba(201, 169, 98, 0.7); }
+
 /* ---------- Ambient Glow ---------- */
 .glow {
   position: absolute;
@@ -295,144 +280,79 @@ hr.rule {
   animation: flicker 7s ease-in-out infinite;
   z-index: 0;
 }
+.glow--gold { width: 420px; height: 420px; background: radial-gradient(circle, rgba(201, 169, 98, 0.35), transparent 70%); }
+.glow--sage { width: 360px; height: 360px; background: radial-gradient(circle, rgba(76, 97, 82, 0.4), transparent 70%); animation-delay: 2.4s; }
+@keyframes flicker { 0%, 100% { opacity: 0.45; transform: scale(1); } 50% { opacity: 0.65; transform: scale(1.06); } }
 
-.glow--gold {
-  width: 420px; height: 420px;
-  background: radial-gradient(circle, rgba(201, 169, 98, 0.35), transparent 70%);
+/* ---------- Category cards (hub grid) ---------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
 }
-
-.glow--sage {
-  width: 360px; height: 360px;
-  background: radial-gradient(circle, rgba(76, 97, 82, 0.4), transparent 70%);
-  animation-delay: 2.4s;
-}
-
-@keyframes flicker {
-  0%, 100% { opacity: 0.45; transform: scale(1); }
-  50% { opacity: 0.65; transform: scale(1.06); }
-}
-
-/* ---------- Premium Session Cards ---------- */
-.sessions-layout {
-  position: relative;
-  z-index: 2;
-}
-
-.featured-session {
+.category-card {
   background: var(--plum-900);
   border: 1px solid var(--line-hair);
   border-radius: var(--radius-md);
-  padding: var(--space-5);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
-  margin-bottom: var(--space-6);
-  box-shadow: 0 40px 80px -20px var(--shadow-deep);
-  transition: background 0.4s var(--ease-out), transform 0.4s var(--ease-out);
-}
-
-.featured-session:hover {
-  background: var(--plum-800);
-}
-
-.sessions-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
-}
-
-.session-card {
-  background: var(--plum-900);
-  border: 1px solid var(--line-hair);
-  border-radius: var(--radius-md);
-  padding: var(--space-4);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   box-shadow: 0 20px 40px -10px var(--shadow-deep);
-  transition: background 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+  transition: background 0.4s var(--ease-out), transform 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
 }
-
-.session-card:hover {
-  background: var(--plum-800);
-  transform: translateY(-2px);
+.category-card:hover { background: var(--plum-800); transform: translateY(-3px); border-color: var(--gold-500); }
+.category-card--wide { grid-column: span 2; }
+.category-card-visual {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
 }
-
-.session-header {
-  margin-bottom: var(--space-3);
+.category-card-visual img { width: 100%; height: 100%; object-fit: cover; }
+.category-card-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 15, 23, 0) 40%, rgba(26, 15, 23, 0.7) 100%);
+  pointer-events: none;
 }
-
-.session-header .eyebrow {
-  margin-bottom: var(--space-2);
-}
-
-.session-header h3 {
-  font-size: 2rem;
-  margin-bottom: var(--space-1);
-}
-
-.session-desc {
-  color: var(--ivory-300);
-  margin-bottom: var(--space-3);
-}
-
-.session-suited {
-  font-size: 0.95rem;
-  color: var(--ivory-500);
-  font-style: italic;
-  margin-bottom: var(--space-4);
-}
-
-.session-details {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-4) 0;
-  border-top: 1px solid var(--line-hair);
-  padding-top: var(--space-3);
-  display: grid;
-  gap: 0.75rem;
-  flex-grow: 1;
-}
-
-.session-details li {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-size: 0.9rem;
-  color: var(--ivory-300);
-}
-
-.session-details .label {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold-400);
-  font-weight: 500;
-}
-
-.session-footer {
+.category-card-body { padding: var(--space-3); display: flex; flex-direction: column; flex-grow: 1; }
+.category-card-body .eyebrow { margin-bottom: var(--space-1); }
+.category-card-body h3 { font-size: 1.4rem; margin-bottom: 0.5em; }
+.category-card-body p { color: var(--ivory-500); font-size: 0.95rem; flex-grow: 1; }
+.category-card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
   border-top: 1px solid var(--line-hair);
-  padding-top: var(--space-4);
 }
-
-.session-price {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  color: var(--ivory-100);
-  line-height: 1;
+.category-card-from { font-size: 0.8rem; color: var(--ivory-500); }
+.category-card-from strong { font-family: var(--font-display); font-size: 1.2rem; color: var(--ivory-100); font-weight: 500; }
+.category-card-arrow {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line-hair);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  flex-shrink: 0;
 }
+.category-card:hover .category-card-arrow { border-color: var(--gold-500); transform: translateX(2px); }
 
-/* ---------- Break Section ---------- */
-.breather-section {
-  text-align: center;
-  max-width: 800px;
-  margin-inline: auto;
+/* ---------- What to expect strip ---------- */
+.expect-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-4);
 }
+.expect-item { display: flex; flex-direction: column; gap: 0.6em; }
+.expect-item svg { color: var(--gold-500); flex-shrink: 0; }
+.expect-item h4 { font-size: 1.05rem; }
+.expect-item p { color: var(--ivory-500); font-size: 0.9rem; }
 
+/* ---------- Breather ---------- */
+.breather-section { text-align: center; max-width: 760px; margin-inline: auto; }
 .breather-section .pull-quote {
   font-family: var(--font-display);
   font-style: italic;
@@ -441,129 +361,87 @@ hr.rule {
   line-height: 1.4;
   margin-bottom: var(--space-3);
 }
-
 .breather-section .pull-quote::before { content: "\201C"; color: var(--gold-500); }
 .breather-section .pull-quote::after { content: "\201D"; color: var(--gold-500); }
 
 /* ---------- CTA band ---------- */
-.cta-band {
-  position: relative;
-  overflow: hidden;
-  background: var(--plum-800);
-  border-top: 1px solid var(--line-hair);
-  border-bottom: 1px solid var(--line-hair);
-  text-align: center;
-}
-
-.cta-band .wrap {
-  padding-block: var(--space-5);
-  position: relative;
-  z-index: 1;
-}
-
-.cta-band h2 {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  max-width: 620px;
-  margin-inline: auto;
-}
-
-.cta-band p {
-  margin-top: var(--space-2);
-  color: var(--ivory-500);
-}
-
+.cta-band { position: relative; overflow: hidden; background: var(--plum-800); border-top: 1px solid var(--line-hair); border-bottom: 1px solid var(--line-hair); text-align: center; }
+.cta-band .wrap { padding-block: var(--space-5); position: relative; z-index: 1; }
+.cta-band h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); max-width: 620px; margin-inline: auto; }
+.cta-band p { margin-top: var(--space-2); color: var(--ivory-500); }
 .cta-band .btn { margin-top: var(--space-4); }
 
 /* ---------- Footer ---------- */
-.site-footer {
-  background: var(--ink-black);
-  border-top: 1px solid var(--line-hair);
-  padding-block: var(--space-5) var(--space-4);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: var(--space-4);
-}
-
-.footer-brand p {
-  margin-top: var(--space-2);
-  color: var(--ivory-500);
-  font-size: 0.9rem;
-  max-width: 32ch;
-}
-
-.footer-col h4 {
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold-400);
-  margin-bottom: var(--space-2);
-}
-
-.footer-col ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6em;
-}
-
-.footer-col a {
-  color: var(--ivory-500);
-  font-size: 0.9rem;
-  transition: color 0.3s var(--ease-out);
-}
-
+.site-footer { background: var(--ink-black); border-top: 1px solid var(--line-hair); padding-block: var(--space-5) var(--space-4); }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--space-4); }
+.footer-brand p { margin-top: var(--space-2); color: var(--ivory-500); font-size: 0.9rem; max-width: 32ch; }
+.footer-col h4 { font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-400); margin-bottom: var(--space-2); }
+.footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6em; }
+.footer-col a { color: var(--ivory-500); font-size: 0.9rem; transition: color 0.3s var(--ease-out); }
 .footer-col a:hover { color: var(--gold-400); }
-
-.footer-bottom {
-  margin-top: var(--space-5);
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--line-hair);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  font-size: 0.8rem;
-  color: var(--ivory-500);
-}
+.footer-bottom { margin-top: var(--space-5); padding-top: var(--space-3); border-top: 1px solid var(--line-hair); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); font-size: 0.8rem; color: var(--ivory-500); }
 
 /* ---------- Reveal-on-scroll ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
-  .featured-session { grid-template-columns: 1fr; gap: var(--space-4); }
-  .sessions-grid { grid-template-columns: 1fr; }
+  .category-grid { grid-template-columns: 1fr 1fr; }
+  .category-card--wide { grid-column: span 2; }
+  .expect-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 720px) {
   .nav-links { display: none; }
   .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .category-grid { grid-template-columns: 1fr; }
+  .category-card--wide { grid-column: span 1; }
+  .expect-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-3); }
-  .session-card { padding: var(--space-3); }
-  .featured-session { padding: var(--space-3); }
+
+  .nav-links.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--plum-950);
+    border-bottom: 1px solid var(--line-hair);
+    padding: var(--space-3);
+  }
+  .nav-links.is-open > li { width: 100%; }
+  .nav-links.is-open a { padding-block: 0.7em; }
+  .nav-links .nav-cta { align-self: flex-start; margin-top: var(--space-2); }
+
+  .nav-dropdown {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    transition: max-height 0.3s var(--ease-out);
+  }
+  .has-dropdown-parent.is-expanded .nav-dropdown {
+    max-height: 400px;
+    padding: 0.5em 0 0.8em 1em;
+  }
+  .dropdown-caret { transition: transform 0.3s var(--ease-out); }
+  .has-dropdown-parent.is-expanded .dropdown-caret { transform: rotate(180deg); }
 }
 
 @media (max-width: 480px) {
   .site-header .wrap { height: 68px; }
   .section-head h1 { font-size: 2.2rem; }
-  .session-footer { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
-  .session-footer .btn { width: 100%; }
 }
   </style>
 </head>
@@ -576,9 +454,24 @@ hr.rule {
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="sessions.html" aria-current="page">Sessions</a></li>
+          <li class="has-dropdown-parent">
+            <a href="sessions.html" class="has-dropdown" aria-current="page">
+              Sessions
+              <svg class="dropdown-caret" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </a>
+            <div class="nav-dropdown">
+              <a href="sessions.html" aria-current="page">All Sessions</a>
+              <hr class="rule">
+              <a href="love-reading.html">Love &amp; Relationship Reading</a>
+              <a href="tarot-reading.html">Tarot Reading</a>
+              <a href="career-life-path-reading.html">Career &amp; Life Path Reading</a>
+              <a href="psychic-reading.html">Psychic Reading</a>
+              <a href="future-prediction.html">Future Prediction</a>
+            </div>
+          </li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="request-reading.html" class="nav-cta"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M9 1L11 6.5L17 7L12.5 11L14 17L9 13.5L4 17L5.5 11L1 7L7 6.5L9 1Z" fill="currentColor"/></svg>Begin Reading</a></li>
         </ul>
       </nav>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -590,151 +483,134 @@ hr.rule {
   </header>
 
   <main>
-    
+
     <!-- PAGE INTRO -->
     <section class="section section--tight">
       <div class="glow glow--gold" style="top: 10%; left: 10%;" aria-hidden="true"></div>
       <div class="wrap">
         <div class="section-head section-head--center reveal">
-          <span class="eyebrow">Confidential Offerings</span>
-          <h1>Sessions designed for <em>depth</em>, not volume.</h1>
-          <p>Every journey requires a distinct approach. Venicit limits availability to ensure each private protocol receives the unhurried, rigorous attention required for true clarity.</p>
+          <span class="eyebrow">All Sessions</span>
+          <h1>Five ways to get <em>clarity</em>, one private space.</h1>
+          <p>Each format is built around a different kind of question. Pick the one that matches what's actually on your mind — every session is private, same-day, and conducted by an experienced advisor.</p>
         </div>
       </div>
     </section>
 
-    <!-- SESSIONS LISTING -->
+    <!-- CATEGORY GRID -->
     <section class="section" style="padding-top: 0;">
       <div class="glow glow--sage" style="bottom: 20%; right: -5%;" aria-hidden="true"></div>
-      
-      <div class="wrap sessions-layout">
-        
-        <!-- FEATURED SESSION -->
-        <article class="featured-session reveal">
-          <div class="session-header">
-            <span class="eyebrow">The Signature Protocol</span>
-            <h3>40 Minute Private Support Session</h3>
-            <p class="session-desc" style="margin-top: var(--space-2); font-size: 1.05rem;">Our signature private support session designed for immediate clarity and direct guidance. A focused forty-minute conversation where we explore your situation, uncover the deeper patterns surrounding it, and provide practical and spiritual insight in real time.</p>
-            <p class="session-suited">Best suited for: Immediate guidance, difficult decisions, emotional crossroads, and those seeking direct clarity.</p>
+      <div class="wrap">
+        <div class="category-grid">
+
+          <a href="love-reading.html" class="category-card category-card--wide reveal">
+            <div class="category-card-visual">
+              <img src="hero.webp" alt="Hand-poured candles arranged with brass keys and coins, evoking a private reading focused on matters of the heart.">
+            </div>
+            <div class="category-card-body">
+              <span class="eyebrow">Love &amp; Relationship</span>
+              <h3>Clarity on where things actually stand</h3>
+              <p>A focused session on a current partner, a breakup, or someone you can't stop thinking about — what's happening, and what's likely next.</p>
+              <div class="category-card-footer">
+                <span class="category-card-from">From <strong>$4.99</strong></span>
+                <span class="category-card-arrow">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="tarot-reading.html" class="category-card reveal">
+            <div class="category-card-visual">
+              <img src="hero-tarot.webp" alt="A fanned spread of ornate tarot cards lit by warm candlelight, with brass keys and gold coins nearby.">
+            </div>
+            <div class="category-card-body">
+              <span class="eyebrow">Tarot Reading</span>
+              <h3>Structured, symbolic insight</h3>
+              <p>A traditional card reading built around your specific situation, not a generic spread.</p>
+              <div class="category-card-footer">
+                <span class="category-card-from">From <strong>$4.99</strong></span>
+                <span class="category-card-arrow">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="career-life-path-reading.html" class="category-card reveal">
+            <div class="category-card-visual">
+              <img src="hero-career.webp" alt="An antique brass compass and pocket watch resting on aged ledger paper, lit by candlelight.">
+            </div>
+            <div class="category-card-body">
+              <span class="eyebrow">Career &amp; Life Path</span>
+              <h3>Direction on decisions and timing</h3>
+              <p>A job change, a move, a fork in the road — clarity on which way to go and when.</p>
+              <div class="category-card-footer">
+                <span class="category-card-from">From <strong>$4.99</strong></span>
+                <span class="category-card-arrow">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="psychic-reading.html" class="category-card reveal">
+            <div class="category-card-visual">
+              <img src="hero-psychic.webp" alt="A lit candle beside a crystal sphere on dark velvet, evoking an open, intuitive reading.">
+            </div>
+            <div class="category-card-body">
+              <span class="eyebrow">Psychic Reading</span>
+              <h3>Open guidance, no fixed question</h3>
+              <p>For when several things feel unresolved at once and you're not sure where to start.</p>
+              <div class="category-card-footer">
+                <span class="category-card-from">From <strong>$4.99</strong></span>
+                <span class="category-card-arrow">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <a href="future-prediction.html" class="category-card reveal">
+            <div class="category-card-visual">
+              <img src="hero-future.webp" alt="An antique hourglass beside an open astronomical chart, lit by candlelight.">
+            </div>
+            <div class="category-card-body">
+              <span class="eyebrow">Future Prediction</span>
+              <h3>A clear look at what's ahead</h3>
+              <p>Near-term, seasonal, or a full year out — what's coming, and roughly when.</p>
+              <div class="category-card-footer">
+                <span class="category-card-from">From <strong>$4.99</strong></span>
+                <span class="category-card-arrow">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M13 7L8 2M13 7L8 12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- WHAT TO EXPECT -->
+        <div class="expect-grid">
+          <div class="expect-item reveal">
+            <svg width="22" height="22" viewBox="0 0 18 18" fill="none"><path d="M9 1L11 6.5L17 7L12.5 11L14 17L9 13.5L4 17L5.5 11L1 7L7 6.5L9 1Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            <h4>Experienced Advisors</h4>
+            <p>Every session is conducted personally — no templates, no automated scripts.</p>
           </div>
-          
-          <div style="display: flex; flex-direction: column;">
-            <ul class="session-details">
-              <li><span class="label">Duration</span> <span>40 Minutes</span></li>
-              <li><span class="label">Delivery</span> <span>Direct Phone or Secure Live Chat</span></li>
-              <li><span class="label">Availability</span> <span>Worldwide / Same Day (if open)</span></li>
-              <li><span class="label">Confidentiality</span> <span>Absolute</span></li>
-            </ul>
-            <div class="session-footer" style="border-top: none; padding-top: 0;">
-              <span class="session-price">$9.99</span>
-              <a href="booking.html" class="btn btn-primary">Reserve Session</a>
-            </div>
+          <div class="expect-item reveal">
+            <svg width="22" height="22" viewBox="0 0 18 18" fill="none"><rect x="2" y="6" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 6V4a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="1.2"/></svg>
+            <h4>Fully Confidential</h4>
+            <p>Nothing about your session is shared or recorded beyond what's needed to deliver it.</p>
           </div>
-        </article>
-
-        <!-- PREMIUM GRID -->
-        <div class="sessions-grid">
-          
-          <!-- Card 1 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Focused Insight</span>
-              <h3>Psychic Empath Reading — 1 Question</h3>
-              <p class="session-desc">A highly concentrated energetic scan directed entirely at a single, pressing inquiry. We focus intently on piercing the immediate veil.</p>
-              <p class="session-suited">Best suited for: Immediate clarity on a specific, singular crossroad or decision.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Scope</span> <span>1 Question</span></li>
-              <li><span class="label">Delivery</span> <span>Private Audio or Text</span></li>
-              <li><span class="label">Turnaround</span> <span>Same Day</span></li>
-              <li><span class="label">Method</span> <span>Direct intuitive reading</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price">$4.99</span>
-              <a href="booking.html" class="btn btn-ghost">Select</a>
-            </div>
-          </article>
-
-          <!-- Card 2 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Expanded Insight</span>
-              <h3>3 Question In-Depth Reading</h3>
-              <p class="session-desc">A comprehensive evaluation. We analyze the energetic dynamics surrounding multiple distinct areas of your life to reveal hidden connections.</p>
-              <p class="session-suited">Best suited for: Interconnected issues spanning career, relationships, and personal growth.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Scope</span> <span>3 Questions</span></li>
-              <li><span class="label">Delivery</span> <span>Private Audio</span></li>
-              <li><span class="label">Turnaround</span> <span>Same Day</span></li>
-              <li><span class="label">Method</span> <span>Expanded intuitive analysis</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price">$8.50</span>
-              <a href="booking.html" class="btn btn-ghost">Select</a>
-            </div>
-          </article>
-
-          <!-- Card 3 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Foresight</span>
-              <h3>40 Minute Future Prediction</h3>
-              <p class="session-desc">A live forty-minute session to glimpse the trajectory of your current timelines. We analyze the probability currents surrounding your life to prepare you for what lies ahead.</p>
-              <p class="session-suited">Best suited for: Strategic long-term planning and identifying upcoming obstacles.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Duration</span> <span>40 Minutes</span></li>
-              <li><span class="label">Delivery</span> <span>Phone or Secure Live Chat</span></li>
-              <li><span class="label">Availability</span> <span>Same Day</span></li>
-              <li><span class="label">Focus</span> <span>Future timelines & guidance</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price">$12.99</span>
-              <a href="booking.html" class="btn btn-ghost">Select</a>
-            </div>
-          </article>
-
-          <!-- Card 4 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Archetypal</span>
-              <h3>2 Question Tarot Reading</h3>
-              <p class="session-desc">Utilizing esoteric symbolism and ancient archetypes to decode the subconscious forces and external pressures driving your current reality.</p>
-              <p class="session-suited">Best suited for: Visual thinkers requiring a structured, symbolic breakdown of their situation.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Scope</span> <span>2 Questions</span></li>
-              <li><span class="label">Delivery</span> <span>Private Audio or Text</span></li>
-              <li><span class="label">Turnaround</span> <span>Same Day</span></li>
-              <li><span class="label">Method</span> <span>Traditional & Intuitive Tarot</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price">$6.50</span>
-              <a href="booking.html" class="btn btn-ghost">Select</a>
-            </div>
-          </article>
-
-          <!-- Card 6 -->
-          <article class="session-card reveal">
-            <div class="session-header">
-              <span class="eyebrow">Bespoke</span>
-              <h3>Custom Guidance</h3>
-              <p class="session-desc">A uniquely tailored intervention for complex, multi-layered situations that require a combination of divination, spiritual intervention, and mundane strategy.</p>
-              <p class="session-suited">Best suited for: Unique circumstances that do not fit standard protocols.</p>
-            </div>
-            <ul class="session-details">
-              <li><span class="label">Scope</span> <span>Fully Customized</span></li>
-              <li><span class="label">Support</span> <span>Ongoing options available</span></li>
-              <li><span class="label">Availability</span> <span>Strictly Limited</span></li>
-              <li><span class="label">Process</span> <span>Application Required</span></li>
-            </ul>
-            <div class="session-footer">
-              <span class="session-price" style="font-size: 1.4rem;">Variable</span>
-              <a href="contact.html" class="btn btn-ghost">Apply</a>
-            </div>
-          </article>
-
+          <div class="expect-item reveal">
+            <svg width="22" height="22" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.2"/><path d="M9 5V9L11.5 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <h4>Same-Day Availability</h4>
+            <p>Book and choose a time slot that works for you from what's currently open.</p>
+          </div>
+          <div class="expect-item reveal">
+            <svg width="22" height="22" viewBox="0 0 18 18" fill="none"><path d="M3 9C3 5.7 5.7 3 9 3C12.3 3 15 5.7 15 9C15 12.3 12.3 15 9 15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M9 15C7 15 5.5 13.5 5.5 13.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <h4>Phone &amp; Chat</h4>
+            <p>Choose whichever format is more comfortable for you.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -743,9 +619,9 @@ hr.rule {
     <section class="section section--tight">
       <div class="wrap">
         <div class="breather-section reveal">
-          <p class="pull-quote">True guidance is never automated. It requires a human presence, a quiet space, and the willingness to look at what is actually there.</p>
+          <p class="pull-quote">Not sure which one fits. That's fine — most people start there.</p>
           <hr class="rule" style="margin-block: var(--space-4); max-width: 200px; margin-inline: auto;">
-          <p style="color: var(--ivory-500); font-size: 1.05rem;">Every session at Venicit is personally conducted. There are no templates, no algorithmic responses, and no outsourced readings. When you book a session, you are securing dedicated, private time with an expert focused entirely on you.</p>
+          <p style="color: var(--ivory-500); font-size: 1.05rem;">If your situation touches more than one area — a relationship and a decision, a feeling and a timeline — it's fine to start with whichever reading feels closest. The advisor will follow what actually matters once the session begins.</p>
         </div>
       </div>
     </section>
@@ -755,9 +631,9 @@ hr.rule {
       <div class="glow glow--gold" style="top: -100px; left: 40%;" aria-hidden="true"></div>
       <div class="wrap">
         <span class="eyebrow" style="justify-content:center;">Next Steps</span>
-        <h2>Not sure which protocol fits?</h2>
-        <p>If you require assistance determining which session will best serve your current situation, reach out.</p>
-        <a href="contact.html" class="btn btn-primary">Request Guidance</a>
+        <h2>Still deciding which reading fits?</h2>
+        <p>Reach out and we'll help you pick the right format before you book.</p>
+        <a href="contact.html" class="btn btn-primary">Ask a Question</a>
       </div>
     </section>
 
@@ -768,7 +644,7 @@ hr.rule {
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="brand">Venic<span>it</span></a>
-          <p>Private guidance sessions for clarity, direction, and honest reflection. By appointment only.</p>
+          <p>Private readings and guidance sessions for clarity, direction, and honest reflection. By appointment only.</p>
         </div>
         <div class="footer-col">
           <h4>Site</h4>
@@ -780,11 +656,13 @@ hr.rule {
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Sessions</h4>
+          <h4>Readings</h4>
           <ul>
-            <li><a href="sessions.html">Private Sessions</a></li>
-            <li><a href="sessions.html">Strategic Reflection</a></li>
-            <li><a href="sessions.html">Ongoing Guidance</a></li>
+            <li><a href="love-reading.html">Love &amp; Relationship</a></li>
+            <li><a href="tarot-reading.html">Tarot Reading</a></li>
+            <li><a href="career-life-path-reading.html">Career &amp; Life Path</a></li>
+            <li><a href="psychic-reading.html">Psychic Reading</a></li>
+            <li><a href="future-prediction.html">Future Prediction</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -797,15 +675,12 @@ hr.rule {
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Venicit. All rights reserved.</span>
-        <span>Certified Social Coaching &middot; Private &amp; Confidential</span>
+        <span>Private &amp; Confidential</span>
       </div>
     </div>
   </footer>
 
   <script>
-// Venicit — site behavior
-// Mobile nav toggle and scroll-triggered reveals perfectly inherited from index.html
-
 (function () {
   "use strict";
 
@@ -817,27 +692,34 @@ hr.rule {
     toggle.addEventListener("click", function () {
       var isOpen = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
-      
-      // Basic visual toggle for mobile menu display
-      if (isOpen) {
-        nav.style.display = "flex";
-        nav.style.flexDirection = "column";
-        nav.style.position = "absolute";
-        nav.style.top = "84px";
-        nav.style.left = "0";
-        nav.style.width = "100%";
-        nav.style.background = "rgba(21, 12, 18, 0.95)";
-        nav.style.padding = "2rem";
-        nav.style.borderBottom = "1px solid var(--line-hair)";
-      } else {
-        nav.style.display = "none";
+    });
+  }
+
+  /* Sessions dropdown: hover on desktop (pure CSS), tap-to-expand accordion on mobile */
+  var dropdownParent = document.querySelector(".has-dropdown-parent");
+  if (dropdownParent) {
+    var trigger = dropdownParent.querySelector(".has-dropdown");
+    trigger.addEventListener("click", function (e) {
+      if (window.matchMedia("(max-width: 720px)").matches) {
+        e.preventDefault();
+        dropdownParent.classList.toggle("is-expanded");
       }
+    });
+  }
+
+  /* Close mobile menu when a plain link is clicked (not the dropdown trigger) */
+  if (nav) {
+    nav.querySelectorAll("a").forEach(function (link) {
+      if (link.classList.contains("has-dropdown")) return;
+      link.addEventListener("click", function () {
+        nav.classList.remove("is-open");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+      });
     });
   }
 
   /* Scroll reveal */
   var revealEls = document.querySelectorAll(".reveal");
-
   if (revealEls.length && "IntersectionObserver" in window) {
     var observer = new IntersectionObserver(
       function (entries) {
@@ -850,14 +732,9 @@ hr.rule {
       },
       { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
     );
-
-    revealEls.forEach(function (el) {
-      observer.observe(el);
-    });
+    revealEls.forEach(function (el) { observer.observe(el); });
   } else {
-    revealEls.forEach(function (el) {
-      el.classList.add("is-visible");
-    });
+    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 })();
   </script>
