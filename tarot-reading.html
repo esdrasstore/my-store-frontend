@@ -206,7 +206,7 @@ hr.rule { border: none; border-top: 1px solid var(--line-hair); margin: 0; }
 .dropdown-caret { width: 9px; height: 9px; transition: transform 0.3s var(--ease-out); flex-shrink: 0; }
 .nav-dropdown {
   position: absolute;
-  top: calc(100% + 18px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   min-width: 260px;
@@ -214,7 +214,8 @@ hr.rule { border: none; border-top: 1px solid var(--line-hair); margin: 0; }
   border: 1px solid var(--line-hair);
   border-radius: var(--radius-md);
   box-shadow: 0 30px 60px -20px var(--shadow-deep);
-  padding: var(--space-2);
+  padding: 18px var(--space-2) var(--space-2);
+  margin-top: 0;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
