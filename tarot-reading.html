@@ -209,7 +209,9 @@ hr.rule { border: none; border-top: 1px solid var(--line-hair); margin: 0; }
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(6px);
-  min-width: 260px;
+  min-width: 300px;
+  max-height: 70vh;
+  overflow-y: auto;
   background: var(--plum-900);
   border: 1px solid var(--line-hair);
   border-radius: var(--radius-md);
@@ -240,6 +242,17 @@ hr.rule { border: none; border-top: 1px solid var(--line-hair); margin: 0; }
 .nav-dropdown a::after { display: none; }
 .nav-dropdown a:hover { background: var(--plum-800); color: var(--gold-400); }
 .nav-dropdown hr.rule { margin-block: 0.5em; }
+.dropdown-group-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  opacity: 0.75;
+  padding: 0.9em 0.8em 0.3em;
+}
+.dropdown-group-label:first-of-type { padding-top: 0.5em; }
 
 .nav-toggle {
   display: none;
@@ -469,7 +482,7 @@ hr.rule { border: none; border-top: 1px solid var(--line-hair); margin: 0; }
     transition: max-height 0.3s var(--ease-out);
   }
   .has-dropdown-parent.is-expanded .nav-dropdown {
-    max-height: 400px;
+    max-height: 600px;
     padding: 0.5em 0 0.8em 1em;
   }
   .dropdown-caret { transition: transform 0.3s var(--ease-out); }
@@ -499,11 +512,27 @@ hr.rule { border: none; border-top: 1px solid var(--line-hair); margin: 0; }
             <div class="nav-dropdown">
               <a href="sessions.html">All Sessions</a>
               <hr class="rule">
-              <a href="love-reading.html">Love &amp; Relationship Reading</a>
-              <a href="tarot-reading.html" aria-current="page">Tarot Reading</a>
-              <a href="career-life-path-reading.html">Career &amp; Life Path Reading</a>
+
+              <span class="dropdown-group-label">Love &amp; Connection</span>
+              <a href="love-reading.html">Love &amp; Relationship</a>
+              <a href="soulmate-twin-flame-reading.html">Soulmate &amp; Twin Flame</a>
+
+              <span class="dropdown-group-label">Guidance &amp; Insight</span>
               <a href="psychic-reading.html">Psychic Reading</a>
+              <a href="tarot-reading.html">Tarot Reading</a>
+              <a href="dream-interpretation-reading.html">Dream Interpretation</a>
+
+              <span class="dropdown-group-label">Direction &amp; Timing</span>
+              <a href="career-life-path-reading.html">Career &amp; Life Path</a>
               <a href="future-prediction.html">Future Prediction</a>
+              <a href="numerology-astrology-reading.html">Numerology &amp; Astrology</a>
+
+              <span class="dropdown-group-label">Protection &amp; Clearing</span>
+              <a href="protection-hex-removal-reading.html">Protection &amp; Hex Removal</a>
+              <a href="luck-prosperity-reading.html">Luck &amp; Prosperity</a>
+
+              <span class="dropdown-group-label">Spirit &amp; Memory</span>
+              <a href="messages-from-loved-ones-reading.html">Messages from Loved Ones</a>
             </div>
           </li>
           <li><a href="faq.html">FAQ</a></li>
