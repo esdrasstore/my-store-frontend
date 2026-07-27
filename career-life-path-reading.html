@@ -209,7 +209,9 @@ hr.rule { border: none; border-top: 1px solid var(--line-hair); margin: 0; }
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(6px);
-  min-width: 260px;
+  min-width: 300px;
+  max-height: 70vh;
+  overflow-y: auto;
   background: var(--plum-900);
   border: 1px solid var(--line-hair);
   border-radius: var(--radius-md);
@@ -240,7 +242,17 @@ hr.rule { border: none; border-top: 1px solid var(--line-hair); margin: 0; }
 .nav-dropdown a::after { display: none; }
 .nav-dropdown a:hover { background: var(--plum-800); color: var(--gold-400); }
 .nav-dropdown hr.rule { margin-block: 0.5em; }
-
+.dropdown-group-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  opacity: 0.75;
+  padding: 0.9em 0.8em 0.3em;
+}
+.dropdown-group-label:first-of-type { padding-top: 0.5em; }
 .nav-toggle {
   display: none;
   background: none;
